@@ -9,210 +9,34 @@ from IPython.display import Markdown, display
 # requests is already imported once, removing duplicate
 from getpass import getpass
 import ollama # Import the ollama library
+from dotenv import load_dotenv
+
+load_dotenv()
+
+ELASTICSEARCH_HOST = os.getenv('ELASTICSEARCH_HOST')
+ELASTICSEARCH_PORT = os.getenv('ELASTICSEARCH_PORT')
+ELASTICSEARCH_USERNAME = os.getenv('ELASTICSEARCH_USERNAME')
+ELASTICSEARCH_PASSWORD = os.getenv('ELASTICSEARCH_PASSWORD') 
 
 # Elasticsearch local connection
-# Removed: es_cloud_id = getpass(prompt="Enter your Elasticsearch Cloud ID: ")
-# Removed: es_api_key = getpass(prompt="Enter your Elasticsearch API key: ")
-es = Elasticsearch(['http://localhost:9200'], basic_auth=('elastic', '9cKxyfj9')) # Default local ES
-
+hosts = f"http://{ELASTICSEARCH_HOST}:{ELASTICSEARCH_PORT}"
+es = Elasticsearch([hosts], basic_auth=('elastic', 'r4iKdEp3')) # Default local ES
 es.info()
 
-# Ollama Configuration
-OLLAMA_BASE_URL = "http://localhost:11434/api/chat"
-OLLAMA_MODEL = "llama3.2:1b"  # You can change this to your preferred Ollama model
 
-# Removed Azure OpenAI Configuration
-# ENDPOINT = getpass("Azure OpenAI Completions Endpoint: ")
-# AZURE_API_KEY = getpass("Azure OpenAI API Key: ")
-# DEPLOYMENT_NAME = getpass("Azure OpenAI Deployment Name: ")
-# deployment_name = DEPLOYMENT_NAME # This variable is no longer used
-# API_VERSION = getpass("Completions Endpoint API Version: ")
-# client = AzureOpenAI(...) # Removed
+# Ollama Configuration
+OLLAMA_BASE_URL = os.getenv('OLLAMA_BASE_URL')
+OLLAMA_MODEL = os.getenv('OLLAMA_MODEL')
+
 
 ##create google maps api key here: https://developers.google.com/maps/documentation/embed/get-api-key
 #GMAPS_API_KEY = getpass(prompt="Enter Google Maps API Key: ")
-google_maps_api_key = "AIzaSyB-yBrRX8KsYrVEJkrtOV-cT6rVVaJw9TI"
+google_maps_api_key = os.getenv('GMAPS_API_KEY')
 
 # Elastic index
 ES_INDEX = "hotels"
 TEMPLATE_ID = "hotel_search_template"
 
-# JSON dataset URL
-DATASET_URL = "https://ela.st/hotels-dataset"
-
-ELSER_ENDPOINT_NAME = "my-elser-endpoint"
-E5_ENDPOINT_NAME = "my-e5-endpoint"
-
-
-# Define the index mapping
-INDEX_MAPPING = {
-    "mappings": {
-        "properties": {
-            "Address": {"type": "text"},
-            "Attractions": {"type": "text"},
-            "Description": {"type": "text"},
-            "FaxNumber": {"type": "text"},
-            "HotelCode": {"type": "long"},
-            "HotelFacilities": {"type": "text"},
-            "HotelName": {"type": "text"},
-            "HotelRating": {"type": "long"},
-            "HotelWebsiteUrl": {"type": "keyword"},
-            "Map": {"type": "keyword"},
-            "PhoneNumber": {"type": "text"},
-            "PinCode": {"type": "keyword"},
-            "cityCode": {"type": "long"},
-            "cityName": {"type": "text"},
-            "combined_fields": {
-                "type": "text",
-                "copy_to": ["semantic_description_elser", "semantic_description_e5"],
-            },
-            "countryCode": {"type": "keyword"},
-            "countryName": {"type": "keyword"},
-            "latitude": {"type": "double"},
-            "location": {"type": "geo_point"},
-            "longitude": {"type": "double"},
-            "semantic_description_e5": {
-                "type": "semantic_text",
-                "inference_id": E5_ENDPOINT_NAME,
-            },
-            "semantic_description_elser": {
-                "type": "semantic_text",
-                "inference_id": ELSER_ENDPOINT_NAME,
-            },
-        }
-    }
-}
-
-def create_inferencing_endpoints():
-    endpoints = [
-        {
-            "inference_id": ELSER_ENDPOINT_NAME,
-            "task_type": "sparse_embedding",
-            "body": {
-                "service": "elasticsearch",
-                "service_settings": {
-                    "num_allocations": 2,
-                    "num_threads": 1,
-                    "model_id": ".elser_model_2_linux-x86_64",
-                },
-                "chunking_settings": {
-                    "strategy": "sentence",
-                    "max_chunk_size": 250,
-                    "sentence_overlap": 1,
-                },
-            },
-        },
-        {
-            "inference_id": E5_ENDPOINT_NAME,
-            "task_type": "text_embedding",
-            "body": {
-                "service": "elasticsearch",
-                "service_settings": {
-                    "num_allocations": 2,
-                    "num_threads": 1,
-                    "model_id": ".multilingual-e5-small",
-                },
-                "chunking_settings": {
-                    "strategy": "sentence",
-                    "max_chunk_size": 250,
-                    "sentence_overlap": 1,
-                },
-            },
-        },
-    ]
-
-    for endpoint in endpoints:
-        try:
-            es.inference.delete(inference_id=endpoint["inference_id"], force=True)
-            print(f"Deleted endpoint '{endpoint['inference_id']}'")
-        except NotFoundError:
-            print(
-                f"Endpoint '{endpoint['inference_id']}' does not exist. Skipping deletion."
-            )
-
-        response = es.inference.put(
-            inference_id=endpoint["inference_id"],
-            task_type=endpoint["task_type"],
-            body=endpoint["body"],
-            request_timeout=60 # Increased timeout
-        )
-        print(f"Created endpoint '{endpoint['inference_id']}': {response}")
-
-# Step 1: Create the index with mapping
-def create_index():
-    try:
-        if es.indices.exists(index=ES_INDEX):
-            print(f"Index '{ES_INDEX}' already exists. Deleting and recreating...")
-            es.indices.delete(index=ES_INDEX)
-
-        es.indices.create(index=ES_INDEX, body=INDEX_MAPPING)
-        print(f"Index '{ES_INDEX}' created successfully.")
-    except Exception as e:
-        print(f"Error creating index: {e}")
-        exit(1)
-
-
-# Step 2: Download the JSON file
-def download_json():
-    """Reads JSON records from a local file."""
-    file_path = "hotels-02-18-2025.json"  # Assuming the file is in the current directory
-    print(f"Reading dataset from local file: {file_path}")
-
-    try:
-        with open(file_path, 'r', encoding='utf-8') as f:
-            # Return a generator that yields lines from the file
-            for line in f:
-                yield line.strip() # Use yield to return an iterator
-    except FileNotFoundError:
-        print(f"Error: Local file not found at {file_path}")
-        # Depending on desired behavior, you might want to exit or handle differently
-        exit(1)
-    except Exception as e:
-        print(f"Error reading local file {file_path}: {e}")
-        exit(1)
-
-
-# Step 3: Ingest JSON records into Elasticsearch
-def ingest_data():
-    print("Ingesting data into Elasticsearch...")
-    actions = []
-
-    for line in download_json():
-        if line:
-            record = json.loads(line)
-            if "latitude" in record and "longitude" in record:
-                record["location"] = {
-                    "lat": record["latitude"],
-                    "lon": record["longitude"],
-                }
-
-            actions.append({"_index": ES_INDEX, "_source": record})
-
-            if len(actions) >= 50:
-                try:
-                    helpers.bulk(es, actions, request_timeout=80) # Increased timeout
-                    print(f"Ingested {len(actions)} records...")
-                    actions = []
-                except helpers.BulkIndexError as e:
-                    print(f"Bulk indexing failed for {len(e.errors)} documents:")
-                    for error in e.errors:
-                        print(json.dumps(error, indent=2))
-                    # Depending on desired behavior, you might want to re-raise or handle differently
-                    # For now, we'll print and continue to see if other batches fail
-                    actions = [] # Clear actions to avoid retrying the same failed batch
-
-    if actions:
-        try:
-            helpers.bulk(es, actions, request_timeout=80) # Increased timeout
-            print(f"Ingested {len(actions)} remaining records.")
-        except helpers.BulkIndexError as e:
-            print(f"Bulk indexing failed for {len(e.errors)} remaining documents:")
-            for error in e.errors:
-                print(json.dumps(error, indent=2))
-            # Re-raise the exception after printing details if you want the script to stop
-            # raise e # Uncomment to re-raise
-
-    print("Data ingestion complete.")
 
 # Search template content
 search_template_content = {
@@ -324,10 +148,10 @@ def find_a_hotel(content):
                             "type": "string",
                             "description": "The search radius (e.g., 500m, 1000m).",
                         },
-                        # "rating": {
-                        #     "type": "number",
-                        #     "description": "The minimum hotel rating (e.g., 3, 4, or 5 stars).",
-                        # },
+                        "rating": {
+                            "type": "number",
+                            "description": "The minimum hotel rating (e.g., 3, 4, or 5 stars).",
+                        },
                         "location": {
                             "type": "string",
                             "description": "Location mentioned in the query (e.g., Belongil Beach, Byron Bay).",
@@ -398,10 +222,10 @@ def find_a_hotel(content):
                             "type": "string",
                             "description": "Search radius (e.g., '5000m', '10km').",
                         },
-                        # "rating": {
-                        #     "type": "number",
-                        #     "description": "Minimum hotel rating (e.g., 3, 4, 5 stars).",
-                        # },
+                        "rating": {
+                            "type": "number",
+                            "description": "Minimum hotel rating (e.g., 3, 4, 5 stars).",
+                        },
                         "countryName": {
                             "type": "string",
                             "description": "The country name (e.g., 'Australia', 'United States').",
@@ -452,7 +276,7 @@ def find_a_hotel(content):
         }
         
         response_message_for_processing = {} # Initialize
-
+        print(f"Using Ollama model: {OLLAMA_MODEL}")
         try:
             # Use ollama.chat for tool calling
             ollama_response_data = ollama.chat(
@@ -478,7 +302,7 @@ def find_a_hotel(content):
             messages.append(response_message_for_processing)
             break 
         except json.JSONDecodeError as e:
-            raw_resp_text = api_response.text if 'api_response' in locals() and hasattr(api_response, 'text') else "N/A"
+            raw_resp_text = ollama_response_data.get("text", "N/A") if isinstance(ollama_response_data, dict) else "N/A"
             print(f"Error decoding Ollama JSON response: {e}")
             print(f"Raw response text: {raw_resp_text}")
             response_message_for_processing = {"role": "assistant", "content": f"Error decoding Ollama response. Raw: {raw_resp_text[:200]}"}
@@ -708,9 +532,6 @@ def geocode_location(location):
 
 if __name__ == "__main__":
     print("Starting hotel search application...")
-#    create_inferencing_endpoints()
-#    create_index()
-#    ingest_data()
     delete_search_template(TEMPLATE_ID) # Delete if exists
     create_search_template()
 

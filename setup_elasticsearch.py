@@ -2,13 +2,23 @@ import json
 from elasticsearch import Elasticsearch, helpers, NotFoundError
 import requests
 from getpass import getpass # Keep for now, might remove later
+from dotenv import load_dotenv
+
+# Cargar las variables desde el archivo .env
+load_dotenv()
+ELASTICSEARCH_HOST = os.getenv('ELASTICSEARCH_HOST')
+ELASTICSEARCH_PORT = os.getenv('ELASTICSEARCH_PORT')
+ELASTICSEARCH_USERNAME = os.getenv('ELASTICSEARCH_USERNAME')
+ELASTICSEARCH_PASSWORD = os.getenv('ELASTICSEARCH_PASSWORD') 
+
 
 # Elasticsearch local connection
-es = Elasticsearch(['http://localhost:9200'], basic_auth=('elastic', '9cKxyfj9')) # Default local ES
+hosts = f"http://{ELASTICSEARCH_HOST}:{ELASTICSEARCH_PORT}"
+es = Elasticsearch([hosts], basic_auth=('elastic', 'r4iKdEp3')) # Default local ES
 
 # Elastic index
-ES_INDEX = "hotels"
-TEMPLATE_ID = "hotel_search_template" # Also needed for setup
+ES_INDEX = os.getenv('ES_INDEX')
+TEMPLATE_ID = os.getenv('TEMPLATE_ID')
 
 # JSON dataset URL
 DATASET_URL = "https://ela.st/hotels-dataset"

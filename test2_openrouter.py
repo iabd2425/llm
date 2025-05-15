@@ -5,7 +5,7 @@ import os
 # --- Configuración ---
 # Intenta obtener la API key de una variable de entorno.
 # REEMPLAZA "TU_API_KEY_DE_OPENROUTER" si no usas variables de entorno.
-OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "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")
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY"))
 
 if OPENROUTER_API_KEY == "TU_API_KEY_DE_OPENROUTER":
     print("ADVERTENCIA: Por favor, reemplaza 'TU_API_KEY_DE_OPENROUTER' con tu API key real o configúrala como variable de entorno.")

@@ -5,40 +5,30 @@ from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 from elasticsearch import Elasticsearch, helpers, NotFoundError
 import requests
-from IPython.display import Markdown, display
+from dotenv import load_dotenv
 
 
-# OpenRouter Configuration
-OPENROUTER_API_KEY = "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"
-OPENROUTER_API_BASE = "https://openrouter.ai/api/v1"
-# Using a common Llama 3 model on OpenRouter. Adjust if a more specific "llama3.2" variant is available.
-OPENROUTER_MODEL = "mistralai/mistral-small-3.1-24b-instruct:free"
-# Site for referer header, can be your app's URL or localhost for testing
-OPENROUTER_SITE_URL = "http://localhost:3000" # Or your actual app URL
+# Cargar las variables desde el archivo .env
+load_dotenv()
+
+OPENROUTER_API_KEY = os.getenv('OPENROUTER_API_KEY')
+OPENROUTER_API_BASE = os.getenv('OPENROUTER_API_BASE')
+OPENROUTER_SITE_URL = os.getenv('OPENROUTER_SITE_URL')
+OPENROUTER_MODEL = os.getenv('OPENROUTER_MODEL', 'gpt-3.5-turbo-16k') # Default to gpt-3.5-turbo-16k if not set
+
+ELASTICSEARCH_HOST = os.getenv('ELASTICSEARCH_HOST')
+ELASTICSEARCH_PORT = os.getenv('ELASTICSEARCH_PORT')
+ELASTICSEARCH_USERNAME = os.getenv('ELASTICSEARCH_USERNAME')
+ELASTICSEARCH_PASSWORD = os.getenv('ELASTICSEARCH_PASSWORD') 
 
 # Elasticsearch local connection
-# Removed: es_cloud_id = getpass(prompt="Enter your Elasticsearch Cloud ID: ")
-# Removed: es_api_key = getpass(prompt="Enter your Elasticsearch API key: ")
-es = Elasticsearch(['http://localhost:9200'], basic_auth=('elastic', '9cKxyfj9')) # Default local ES
-
+hosts = f"http://{ELASTICSEARCH_HOST}:{ELASTICSEARCH_PORT}"
+es = Elasticsearch([hosts], basic_auth=('elastic', 'r4iKdEp3')) # Default local ES
 es.info()
 
-# Removed Azure OpenAI Configuration
-# ENDPOINT = getpass("Azure OpenAI Completions Endpoint: ")
-# AZURE_API_KEY = getpass("Azure OpenAI API Key: ")
-# DEPLOYMENT_NAME = getpass("Azure OpenAI Deployment Name: ")
-# deployment_name = DEPLOYMENT_NAME # This variable is no longer used
-# API_VERSION = getpass("Completions Endpoint API Version: ")
-# client = AzureOpenAI(...) # Removed
-
-##create google maps api key here: https://developers.google.com/maps/documentation/embed/get-api-key
-#GMAPS_API_KEY = getpass(prompt="Enter Google Maps API Key: ")
-google_maps_api_key = "AIzaSyB-yBrRX8KsYrVEJkrtOV-cT6rVVaJw9TI"
-
 # Elastic index
-ES_INDEX = "hotels"
-TEMPLATE_ID = "hotel_search_template"
-
+ES_INDEX = os.getenv('ES_INDEX')
+TEMPLATE_ID = os.getenv('TEMPLATE_ID')
 
 # Search template content
 search_template_content = {
@@ -186,23 +176,6 @@ def find_a_hotel(content):
         {
             "type": "function",
             "function": {
-                "name": "geocode_location",
-                "description": "Resolve a location to its latitude and longitude.",
-                "parameters": {
-                    "type": "object",
-                    "properties": {
-                        "location": {
-                            "type": "string",
-                            "description": "The name of the location, e.g., Belongil Beach.",
-                        }
-                    },
-                    "required": ["location"],
-                },
-            },
-        },
-        {
-            "type": "function",
-            "function": {
                 "name": "query_elasticsearch",
                 "description": "Query Elasticsearch for accommodations based on provided parameters from extract_hotel_search_parameters.  Must call extract_hotel_search_parameters prior to call this function ",
                 "parameters": {
@@ -251,9 +224,8 @@ def find_a_hotel(content):
         "You are an assistant that helps find hotels based on user queries by using available tools. "
         "Follow these steps:\n"
         "1. First, use the `extract_hotel_search_parameters` tool to get the search criteria from the user's query.\n"
-        "2. If a location is provided in the extracted parameters, use the `geocode_location` tool to get the latitude and longitude for that location.\n"
-        "3. Finally, use the `query_elasticsearch` tool with all the gathered information (query, location coordinates if available, distance, attractions, etc.) to find matching hotels.\n"
-        "4. Provide recommendations based *only* on the results from the `query_elasticsearch` tool. Do not make up information.\n\n"
+        "2. Second, use the `query_elasticsearch` tool with all the gathered information (query, location coordinates if available, distance, attractions, etc.) to find matching hotels.\n"
+        "Provide recommendations based *only* on the results from the `query_elasticsearch` tool. Do not make up information.\n\n"
         "The last answer must explain in natural language the result from `query_elasticsearch` tool. Avoid to mention query_elasticsearch. \n"
         "When you need to call a function, use the provided tools. The 'arguments' for the function should be an object."
         
@@ -286,7 +258,7 @@ def find_a_hotel(content):
                 model=OPENROUTER_MODEL,
                 messages=messages,
                 tools=tools,
-                tool_choice="auto", # Explicitly set tool_choice, "auto" is default
+                #tool_choice="required", # Explicitly set tool_choice, "auto" is default
                 timeout=60 # Timeout for the API call
             )
             
@@ -380,22 +352,6 @@ def find_a_hotel(content):
                          parameters.update(extracted_params)
                     function_response_content = extracted_params # Pass back the extracted params as the tool's result
                     print(f"Updated global parameters: {parameters}")
-
-                elif function_name == "geocode_location":
-                    location_arg = function_args.get("location")
-                    if location_arg:
-                        geo_response_str = geocode_location(location=location_arg) # geocode_location returns JSON string
-                        function_response_content = geo_response_str
-                        try:
-                            geo_data = json.loads(geo_response_str)
-                            if "latitude" in geo_data and "longitude" in geo_data:
-                                parameters["latitude"] = geo_data["latitude"]
-                                parameters["longitude"] = geo_data["longitude"]
-                                print(f"Updated global parameters with geocoded location: {parameters}")
-                        except json.JSONDecodeError:
-                            print(f"Could not parse geocode response to update parameters: {geo_response_str}")
-                    else:
-                        function_response_content = json.dumps({"error": "Missing 'location' argument for geocoding."})
                 
                 elif function_name == "query_elasticsearch":
                     # Consolidate parameters for this call. LLM-provided args for this specific call take precedence.
@@ -443,12 +399,13 @@ def find_a_hotel(content):
                 # Assuming format_message and display are defined elsewhere for IPython/notebook display
                 formatted_final_response = format_message({"content": final_response_content})
                 display(Markdown(formatted_final_response))
+                break # Exit the while loop as we have the final answer or an unrecoverable state.
             else:
                 # Handle cases where there's no content (e.g. error or empty response from LLM)
                 display(Markdown("Assistant did not provide a final content message or tool calls."))
                 print(f"Full assistant message (no content/tool_calls): {assistant_message_obj.model_dump_json(indent=2) if assistant_message_obj else 'None'}")
-            
-            break # Exit the while loop as we have the final answer or an unrecoverable state.
+            # If no tool calls and no content, the loop continues, allowing the model another turn.
+            # If this leads to an infinite loop, further debugging might be needed.
     
     return messages # Return the full conversation history including all turns
 
@@ -565,26 +522,6 @@ def call_elasticsearch(
     except Exception as e:
         print(f"Error querying Elasticsearch: {e}")
         return json.dumps({"error": f"Error querying Elasticsearch: {str(e)}"})
-
-def geocode_location(location):
-    """Resolve a location to its latitude and longitude using Google Maps API."""
-    geocode_url = "https://maps.googleapis.com/maps/api/geocode/json"
-    params = {"address": location, "key": google_maps_api_key}
-    try:
-        response = requests.get(geocode_url, params=params)
-        response.raise_for_status()
-        data = response.json()
-        if data["status"] == "OK":
-            lat = data["results"][0]["geometry"]["location"]["lat"]
-            lng = data["results"][0]["geometry"]["location"]["lng"]
-            print(f"Geocoded '{location}': lat={lat}, lng={lng}")
-            return json.dumps({"latitude": lat, "longitude": lng})
-        else:
-            print(f"Error geocoding '{location}': {data['status']}")
-            return json.dumps({"error": f"Geocoding failed for {location}: {data['status']}"})
-    except requests.exceptions.RequestException as e:
-        print(f"Error calling Geocoding API: {e}")
-        return json.dumps({"error": f"Geocoding API request error: {str(e)}"})
 
 
 if __name__ == "__main__":
