@@ -5,14 +5,14 @@ import os
 # --- Configuración ---
 # Intenta obtener la API key de una variable de entorno.
 # REEMPLAZA "TU_API_KEY_DE_OPENROUTER" si no usas variables de entorno.
-OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY"))
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 
 if OPENROUTER_API_KEY == "TU_API_KEY_DE_OPENROUTER":
     print("ADVERTENCIA: Por favor, reemplaza 'TU_API_KEY_DE_OPENROUTER' con tu API key real o configúrala como variable de entorno.")
     # Podrías querer salir aquí si es un script real: exit()
 
 API_BASE_URL = "https://openrouter.ai/api/v1"
-MODEL_TO_USE = "mistralai/mistral-small-3.1-24b-instruct:free" # Un modelo que soporte tool calling, como Mistral o GPTs
+MODEL_TO_USE = "meta-llama/llama-4-scout:free" # Un modelo que soporte tool calling, como Mistral o GPTs
 
 # --- Definición de nuestras herramientas (funciones locales) ---
 def get_current_weather(location: str, unit: str = "celsius"):
@@ -78,8 +78,8 @@ def chat_with_tools(user_query: str):
     payload_first_call = {
         "model": MODEL_TO_USE,
         "messages": messages,
-        "tools": available_tools_for_llm,
-        "tool_choice": "auto" # "auto" (default), "none", o {"type": "function", "function": {"name": "my_function"}}
+        "tools": available_tools_for_llm
+        #"tool_choice": "auto" # "auto" (default), "none", o {"type": "function", "function": {"name": "my_function"}}
     }
 
     try:
@@ -95,7 +95,7 @@ def chat_with_tools(user_query: str):
         if hasattr(e, 'response') and e.response is not None:
             print(f"Detalles del error: {e.response.text}")
         return
-
+    print(response_data)
     assistant_message = response_data['choices'][0]['message']
     messages.append(assistant_message) # Añadimos la respuesta del asistente al historial
 

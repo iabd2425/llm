@@ -6,6 +6,8 @@ from zoneinfo import ZoneInfo
 from elasticsearch import Elasticsearch, helpers, NotFoundError
 import requests
 from dotenv import load_dotenv
+from IPython.display import Markdown, display
+
 
 
 # Cargar las variables desde el archivo .env
@@ -140,10 +142,10 @@ def find_a_hotel(content):
                             "type": "string",
                             "description": "The search radius (e.g., 500m, 1000m).",
                         },
-                        # "rating": {
-                        #     "type": "number",
-                        #     "description": "The minimum hotel rating (e.g., 3, 4, or 5 stars).",
-                        # },
+                        "rating": {
+                            "type": "number",
+                            "description": "The minimum hotel rating (e.g., 3, 4, or 5 stars).",
+                        },
                         "location": {
                             "type": "string",
                             "description": "Location mentioned in the query (e.g., Belongil Beach, Byron Bay).",
@@ -197,10 +199,10 @@ def find_a_hotel(content):
                             "type": "string",
                             "description": "Search radius (e.g., '5000m', '10km').",
                         },
-                        # "rating": {
-                        #     "type": "number",
-                        #     "description": "Minimum hotel rating (e.g., 3, 4, 5 stars).",
-                        # },
+                        "rating": {
+                            "type": "number",
+                            "description": "Minimum hotel rating (e.g., 3, 4, 5 stars).",
+                        },
                         "countryName": {
                             "type": "string",
                             "description": "The country name (e.g., 'Australia', 'United States').",
