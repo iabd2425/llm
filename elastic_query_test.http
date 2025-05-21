@@ -1,0 +1,35 @@
+POST http://localhost:9200/_search
+Content-Type: application/json
+Authorization: Basic ZWxhc3RpYzpyNGlLZEVwMw==
+
+{
+  "query": {
+    "bool": {
+      "must": [
+        { "match": { "localidad": "aguadulce" } },
+        {
+          "bool": {
+            "should": [
+              { "match": { "servicios": "piscina" } },
+              { "match": { "servicios": "parking" } }
+            ],
+            "minimum_should_match": 2
+          }
+        }
+      ]
+    }
+  },
+  "sort": [{ "precio": "asc" }],
+  "size": 10
+}
+
+# {
+#   "query": {
+#     "bool": {
+#       "must": [
+#         { "match": { "localidad": "Aguadulce" } },
+#         { "terms": { "servicios": ["piscina", "bar"] } }
+#       ]
+#     }
+#   }
+# }

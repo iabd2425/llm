@@ -1,6 +1,5 @@
 import os
 import json
-# Removed: from openai import AzureOpenAI
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 from elasticsearch import Elasticsearch, helpers, NotFoundError
@@ -20,7 +19,7 @@ ELASTICSEARCH_PASSWORD = os.getenv('ELASTICSEARCH_PASSWORD')
 
 # Elasticsearch local connection
 hosts = f"http://{ELASTICSEARCH_HOST}:{ELASTICSEARCH_PORT}"
-es = Elasticsearch([hosts], basic_auth=('elastic', 'r4iKdEp3')) # Default local ES
+es = Elasticsearch([hosts], basic_auth=(ELASTICSEARCH_USERNAME, ELASTICSEARCH_PASSWORD))
 es.info()
 
 
@@ -29,99 +28,78 @@ OLLAMA_BASE_URL = os.getenv('OLLAMA_BASE_URL')
 OLLAMA_MODEL = os.getenv('OLLAMA_MODEL')
 
 
-##create google maps api key here: https://developers.google.com/maps/documentation/embed/get-api-key
-#GMAPS_API_KEY = getpass(prompt="Enter Google Maps API Key: ")
+ES_INDEX = os.getenv('ES_INDEX')
+TEMPLATE_ID = os.getenv('TEMPLATE_ID')
+
 google_maps_api_key = os.getenv('GMAPS_API_KEY')
 
-# Elastic index
-ES_INDEX = "hotels"
-TEMPLATE_ID = "hotel_search_template"
-
-
-# Search template content
+# Search template 
 search_template_content = {
     "script": {
         "lang": "mustache",
-        "source": """{
-            "_source": false,
-            "fields": ["nombre", "localidad", "marca", "opinion", "comentarios", "fechaEntrada", "servicios"],
-            "retriever": {
-                "standard": {
-                    "query": {
-                        "semantic": {
-                            "field": "descripcion",
-                            "query": "{{query}}"
-                        }
-                    },
-                    "filter": {
-                        "bool": {
-                            "must": [
-                                {{#lat}}
-                                {
-                                    "geo_distance": {
-                                        "distance": "{{distancia}}",
-                                        "coordenadas": {
-                                            "lat": {{lat}},
-                                            "lon": {{lon}}
-                                        }
-                                    }
-                                }{{/lat}}
-                                {{#opinionMin}}{{#lat}},{{/lat}}{
-                                    "range": {
-                                        "opinion": {
-                                            "gte": {{opinionMin}}
-                                        }
-                                    }
-                                }{{/opinionMin}}
-                                {{#localidad}}{{#lat}}{{^opinionMin}},{{/opinionMin}}{{/lat}}{{#opinionMin}},{{/opinionMin}}{
-                                    "match": {
-                                        "localidad": "{{localidad}}"
-                                    }
-                                }{{/localidad}}
-                                {{#marca}}{{#lat}}{{^opinionMin}},{{/opinionMin}}{{/lat}}{{#opinionMin}},{{/opinionMin}}{
-                                    "term": {
-                                        "marca": "{{marca}}"
-                                    }
-                                }{{/marca}}
-                                {{#precioMin}}{{#lat}}{{^opinionMin}},{{/opinionMin}}{{/lat}}{{#opinionMin}},{{/opinionMin}}{
-                                    "range": {
-                                        "precio": {
-                                            "gte": {{precioMin}}
-                                        }
-                                    }
-                                }{{/precioMin}}
-                                {{#precioMax}}{{#lat}}{{^opinionMin}},{{/opinionMin}}{{/lat}}{{#opinionMin}},{{/opinionMin}}{
-                                    "range": {
-                                        "precio": {
-                                            "lte": {{precioMax}}
-                                        }
-                                    }
-                                }{{/precioMax}}
-                            ],
-                            "should": [
-                                {{#servicios}}{
-                                    "wildcard": {
-                                        "servicios": {
-                                            "value": "*{{servicios}}*",
-                                            "case_insensitive": true
-                                        }
-                                    }
-                                }{{/servicios}},
-                                {{#mascotas}}{
-                                    "wildcard": {
-                                        "mascotas": {
-                                            "value": "*{{mascotas}}*",
-                                            "case_insensitive": true
-                                        }
-                                    }
-                                }{{/mascotas}}
-                            ]
-                        }
-                    }
-                }
+        "source": '''{
+query": {
+    "bool": {
+      "must": [
+        {{#nombre}}{ "match": { "nombre": "{{nombre}}" } }{{/nombre}}{{#localidad}},{{/localidad}}
+        {{#localidad}}{ "match": { "localidad": "{{localidad}}" } }{{/localidad}}{{#descripcion}},{{/descripcion}}
+        {{#descripcion}}{ "match": { "descripcion": "{{descripcion}}" } }{{/descripcion}}{{#servicios}},{{/servicios}}
+        {{#servicios}}{ "terms": { "servicios": {{#toJson}}servicios{{/toJson}} } }{{/servicios}}{{#mascotas}},{{/mascotas}}
+        {{#mascotas}}{ "terms": { "mascotas": {{#toJson}}mascotas{{/toJson}} } }{{/mascotas}}{{#marca}},{{/marca}}
+        {{#marca}}{ "term": { "marca": "{{marca}}" } }{{/marca}}{{#destacados}},{{/destacados}}
+        {{#destacados}}{ "terms": { "destacados": {{#toJson}}destacados{{/toJson}} } }{{/destacados}}{{#fechaEntrada}},{{/fechaEntrada}}
+        {{#fechaEntrada}}{
+          "range": {
+            "fechaEntrada": {
+              "gte": "{{fechaEntrada}}"
             }
-        }"""
+          }
+        }{{/fechaEntrada}}{{#fechaSalida}},{{/fechaSalida}}
+        {{#fechaSalida}}{
+          "range": {
+            "fechaSalida": {
+              "lte": "{{fechaSalida}}"
+            }
+          }
+        }{{/fechaSalida}}{{#precioMin}},{{/precioMin}}
+        {{#precioMin}}{
+          "range": {
+            "precio": {
+              "gte": {{precioMin}}
+            }
+          }
+        }{{/precioMin}}{{#precioMax}},{{/precioMax}}
+        {{#precioMax}}{
+          "range": {
+            "precio": {
+              "lte": {{precioMax}}
+            }
+          }
+        }{{/precioMax}}{{#opinionMin}},{{/opinionMin}}
+        {{#opinionMin}}{
+          "range": {
+            "opinion": {
+              "gte": {{opinionMin}}
+            }
+          }
+        }{{/opinionMin}}
+      ]{{#lat}},
+      "filter": {
+        "geo_distance": {
+          "distancia": "{{distancia}}",
+          "coordenadas": {
+            "lat": {{lat}},
+            "lon": {{lon}}
+          }
+        }
+      }{{/lat}}
     }
+  },
+  "sort": [
+    { "precio": "asc" }
+  ]
+}'''
+}
 }
 
 
@@ -153,48 +131,44 @@ def find_a_hotel(content):
             "type": "function",
             "function": {
                 "name": "extract_hotel_search_parameters",
-                "description": "Extract search parameters for finding hotels (excluding the query itself).  the parameters are extracted from the input query",
+                "description": "Extrae los parámetros de búsqueda para encontrar hoteles (excluyendo la pregunta).  Los parámetro se extraen de la pregunta",
                 "parameters": {
                     "type": "object",
                     "properties": {
                         "query": {
                             "type": "string",
-                            "description": "the full input query",
+                            "description": "La pregunta completa",
                         },
-                        "distance": {
+                        "nombre": {
                             "type": "string",
-                            "description": "The search radius (e.g., 500m, 1000m).",
+                            "description": "Nombre del hotel (p.ej., Hotel Playa).",
                         },
-                        "rating": {
+                        "distancia": {
+                            "type": "string",
+                            "description": "El radio de distancia (p.ej., 500m, 1000m).",
+                        },
+                        "opinionMin": {
                             "type": "number",
-                            "description": "The minimum hotel rating (e.g., 3, 4, or 5 stars).",
+                            "description": "La nota de opinión mínima  (p.ej, 5, 8, o 9).",
                         },
-                        "location": {
+                        "localidad": {
                             "type": "string",
-                            "description": "Location mentioned in the query (e.g., Belongil Beach, Byron Bay).",
+                            "description": "Localidad donde está situado el hotel (p.ej. Roquetas de Mar).",
                         },
-                        "countryName": {
+                        "marca": {
                             "type": "string",
-                            "description": "Name of the country (e.g., Australia, Germany).",
+                            "description": "Marca o grupo hotelero (p.ej., Senator, Meliá).",
                         },
-                        "city": {
+                        "mascotas": {
                             "type": "string",
-                            "description": "City name (e.g., Byron Bay, Chicago, Houston).",
+                            "description": "Si el hotel acepta mascotas (p.ej., 'sí', 'no').",
                         },
-                        "State": {
+                        "servicios": {
                             "type": "string",
-                            "description": "State or province (e.g., Texas, Alaska, Alberta).",
-                        },
-                        "countryCode": {
-                            "type": "string",
-                            "description": "The country code (e.g., AU for Australia).",
-                        },
-                        "attraction": {
-                            "type": "string",
-                            "description": "Hotel attractions, amenities, or descriptive terms (e.g., Beach, Museum, gym, modern, luxurious). This can include multiple options.",
+                            "description": "Servicios y caracteristicas (p.ej., piscina, gimnasio, parking)",
                         },
                     },
-                    "required": ["query", "attraction"],
+                    "required": ["query"],
                 },
             },
         },
@@ -202,16 +176,16 @@ def find_a_hotel(content):
             "type": "function",
             "function": {
                 "name": "geocode_location",
-                "description": "Resolve a location to its latitude and longitude.",
+                "description": "Resuelve la latitud y longitud de la localizacion.",
                 "parameters": {
                     "type": "object",
                     "properties": {
                         "location": {
                             "type": "string",
-                            "description": "The name of the location, e.g., Belongil Beach.",
+                            "description": "El nombre de la localización, p.ej., Cabo de Gata.",
                         }
                     },
-                    "required": ["location"],
+                    "required": ["localizacion"],
                 },
             },
         },
@@ -219,44 +193,40 @@ def find_a_hotel(content):
             "type": "function",
             "function": {
                 "name": "query_elasticsearch",
-                "description": "Query Elasticsearch for accommodations based on provided parameters from extract_hotel_search_parameters.  Must call extract_hotel_search_parameters prior to call this function ",
+                "description": "Consulta a Elasticsearch por hoteles basados en los parámetros obtenidos desde extract_hotel_search_parameters.  Debe llamar a la funcion extract_hotel_search_parameters antes de llamar a esta funcion. ",
                 "parameters": {
                     "type": "object",
                     "properties": {
                         "query": {
                             "type": "string",
-                            "description": "The original search query (e.g., 'hotels near Belongil Beach').",
+                            "description": "La pregunta original (e.g., 'hoteles cerca de Cabo de Gata').",
                         },
-                        "latitude": {
+                        "nombre": {
+                            "type": "string",
+                            "description": "Nombre del hotel (p.ej., Hotel Playa).",
+                        },
+                        "localidad": {
+                            "type": "string",
+                            "description": "Localidad donde está situado el hotel (p.ej. Roquetas de Mar).",
+                        },
+                        "latitud": {
                             "type": "number",
-                            "description": "Latitude of the location.",
+                            "description": "Latitud de la localización.",
                         },
-                        "longitude": {
+                        "longitud": {
                             "type": "number",
-                            "description": "Longitude of the location.",
+                            "description": "Longitud de la localización.",
                         },
-                        "distance": {
+                        "distancia": {
                             "type": "string",
-                            "description": "Search radius (e.g., '5000m', '10km').",
+                            "description": "Radio de búsqueda (p.ej., '5000m', '10km').",
                         },
-                        "rating": {
-                            "type": "number",
-                            "description": "Minimum hotel rating (e.g., 3, 4, 5 stars).",
-                        },
-                        "countryName": {
+                        "servicios": {
                             "type": "string",
-                            "description": "The country name (e.g., 'Australia', 'United States').",
-                        },
-                        "countryCode": {
-                            "type": "string",
-                            "description": "The country code (e.g., 'AU', 'US').",
-                        },
-                        "attraction": {
-                            "type": "string",
-                            "description": "hotel attractions or amenity (e.g., Beach, Museum, gym, coffee shop, pool). This can be muliple options. Any feature of a hotel can be used here.  Attractions in the query may be obvious so this can be a comprehensive list",
+                            "description": "servicios y destacados (p.ej., playa, gimnasio, piscina). Pueden ser varias opciones. Puede aparecer cualquier caracteristica del hotel.  Puede ser una lista extensa según la pregunta",
                         },
                     },
-                    "required": ["query"],
+                    "required": ["query", "latitud", "longitud", "distancia"],
                 },
             },
         },
@@ -264,12 +234,13 @@ def find_a_hotel(content):
     
     tools_json_str = json.dumps(tools)
     system_prompt_content = (
-                "You are an assistant that only provides recommendations "
-                "based on the search results retrieved from Elasticsearch. "
-                "Do not make up information or answer based on assumptions. "
-                "Only use the provided data to respond to the user's queries."
-                "Don't make assumptions about what values to use with functions. Ask for clarification if a user request is ambiguous."        
-                "Available functions (do not call functions not listed here):\n" + tools_json_str
+                "Eres un experto en hoteles que responde con precisión. El usuario te hará una pregunta y tú debes:\n"
+                "1. Extraer los parámetros de búsqueda de la pregunta del usuario usando la función 'extract_hotel_search_parameters'.\n"
+                "2. Si la pregunta incluye una localización, llama a 'geocode_location' para obtener la latitud y longitud.\n"
+                "3. Usar la funcion 'query_elasticsearch' con los parámetros obtenidos en 1 y 2.\n"
+                "Cuando use el parámetro 'servicios', formatea el valor como un array JSON (e.g., ['piscina', 'parking']). "
+                "Responde solo con la información obtenida al llamar a la función 'query_elasticsearch'. "
+                "Tienes disponibles estas funciones (no llames a otras que no aparezcan aquí):\n" + tools_json_str
         
     )
     messages = [
@@ -290,18 +261,16 @@ def find_a_hotel(content):
         response_message_for_processing = {} # Initialize
         print(f"Using Ollama model: {OLLAMA_MODEL}")
         try:
-            # Use ollama.chat for tool calling
+            
             ollama_response_data = ollama.chat(
                 model=OLLAMA_MODEL,
                 messages=messages,
-                tools=tools, # Pass the tools definition
-                options={"temperature": 0.0}, # Optional: control creativity
+                tools=tools, 
+                options={"temperature": 0.1}, 
             )
             
-            # The response structure from ollama.chat is similar to OpenAI's
             assistant_message_data = ollama_response_data.get("message", {})
             response_message_for_processing = assistant_message_data
-            # Ensure tool_calls is a list if present, and arguments are strings
             if response_message_for_processing.get("tool_calls"):
                  for tool_call in response_message_for_processing["tool_calls"]:
                      if isinstance(tool_call.get("function", {}).get("arguments"), dict):
@@ -336,7 +305,7 @@ def find_a_hotel(content):
                 function_args = json.loads(function_args_str)
 
                 if function_name == "extract_hotel_search_parameters":
-                    print("Function Arguments for extract_hotel_search_parameters:")
+                    print("Argu for extract_hotel_search_parameters:")
                     print(function_args)
                     function_response = handle_extract_hotel_search_parameters(function_args)
                     print("Response from handle_extract_hotel_search_parameters:")
@@ -368,13 +337,12 @@ def find_a_hotel(content):
 
                     function_response = call_elasticsearch(
                         query=current_call_params.get("query"),
-                        latitude=parameters.get("latitude"),
-                        attraction=current_call_params.get("attraction"),
-                        longitude=parameters.get("longitude"),
-                        distance=current_call_params.get("distance"),
-                        rating=current_call_params.get("rating"),
-                        country_name=current_call_params.get("countryName"), # Note: case difference with `country_name` in call_elasticsearch
-                        country_code=current_call_params.get("countryCode")
+                        nombre=current_call_params.get("nombre"),
+                        latitud=parameters.get("latitud"),
+                        longitud=parameters.get("longitud"),
+                        distancia=current_call_params.get("distancia"),
+                        localidad=current_call_params.get("localidad"), 
+                        servicios=current_call_params.get("servicios")                                                                        
                     )
 
                 elif function_name == "geocode_location":
@@ -384,9 +352,9 @@ def find_a_hotel(content):
 # Add this block to update parameters with geocoded location
                     try:
                         geo_data = json.loads(function_response)
-                        if "latitude" in geo_data and "longitude" in geo_data:
-                            parameters["latitude"] = geo_data["latitude"]
-                            parameters["longitude"] = geo_data["longitude"]
+                        if "latitud" in geo_data and "longitud" in geo_data:
+                            parameters["latitud"] = geo_data["latitud"]
+                            parameters["longitud"] = geo_data["longitud"]
                             print(f"Updated parameters with geocoded location: {parameters}")
                     except json.JSONDecodeError:
                         print(f"Error decoding geocode response: {function_response}")
@@ -469,38 +437,84 @@ def handle_extract_hotel_search_parameters(args):
     # For simplicity, assume it just returns the args as a JSON string.
     # You might have more complex logic here.
     print(f"handle_extract_hotel_search_parameters received: {args}")
+    if args["distancia"] == "":
+            args["distancia"] = "5000m"  # Default distance
     return json.dumps(args)
 
 
 def call_elasticsearch(
-    query, latitude=None, longitude=None, distance=None, rating=None, country_name=None, country_code=None, attraction=None
+    query, nombre=None, latitud=None, longitud=None, distancia=None, localidad=None, servicios=None
 ):
     """
     Query Elasticsearch using the search template and provided parameters.
     """
     params = {"query": query}
-    if latitude is not None and longitude is not None:
-        params["latitude"] = latitude
-        params["longitude"] = longitude
-    if distance:
-        params["distance"] = distance
-    if rating:
-        params["rating"] = rating
-    if country_name:
-        params["countryName"] = country_name # Ensure key matches template
-    if country_code:
-        params["countryCode"] = country_code
-    if attraction:
-        params["attraction"] = attraction
+    if latitud is not None and longitud is not None:
+        params["latitud"] = latitud
+        params["longitud"] = longitud
+    if nombre:
+        params["nombre"] = nombre
+    if distancia:
+        params["distancia"] = "5km"
+    if localidad:
+        params["localidad"] = localidad 
+    if servicios:
+        params["servicios"] = servicios
     
     print(f"Elasticsearch search_template params: {params}")
 
     try:
-        rendered = es.render_search_template(id=TEMPLATE_ID, params=params)
-        print(json.dumps(rendered["template_output"], indent=2))
-        response = es.search_template(
-            index=ES_INDEX, id=TEMPLATE_ID, params=params
-        )
+        # rendered = es.render_search_template(id=TEMPLATE_ID, params=params)
+        # print(json.dumps(rendered["template_output"], indent=2))
+     
+        response = es.search(
+                index=ES_INDEX,
+                size=5,
+                query={
+                    "bool": {
+                        "must": [
+                            {
+                                "match": {
+                                    "localidad": localidad
+                                }
+                            },
+                            {
+                                "match": {
+                                    "servicios": servicios  # Asegúrate de que `servicios` sea un string como "parking"
+                                }
+                            }
+                        ],
+                        "filter": [
+                            {
+                                "geo_distance": {
+                                    "distance": "5km",  # Por ejemplo, "10km"
+                                    "coordenadas": {
+                                        "lat": latitud,
+                                        "lon": longitud
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                sort=[
+                    {
+                        "_geo_distance": {
+                            "coordenadas": {
+                                "lat": latitud,
+                                "lon": longitud
+                            },
+                            "order": "asc",
+                            "unit": "km",
+                            "mode": "min",
+                            "distance_type": "arc"
+                        }
+                    }
+                ]
+            )
+     #response = es.search_template(
+        #    index=ES_INDEX, id=TEMPLATE_ID, params=params
+        #)
         print("Elasticsearch response received.")
         # Process and return hits or a summary
         hits = response.get("hits", {}).get("hits", [])
@@ -535,7 +549,7 @@ def geocode_location(location):
             lat = data["results"][0]["geometry"]["location"]["lat"]
             lng = data["results"][0]["geometry"]["location"]["lng"]
             print(f"Geocoded '{location}': lat={lat}, lng={lng}")
-            return json.dumps({"latitude": lat, "longitude": lng})
+            return json.dumps({"latitud": lat, "longitud": lng})
         else:
             print(f"Error geocoding '{location}': {data['status']}")
             return json.dumps({"error": f"Geocoding failed for {location}: {data['status']}"})

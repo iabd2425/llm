@@ -14,7 +14,7 @@ ELASTICSEARCH_PASSWORD = os.getenv('ELASTICSEARCH_PASSWORD')
 
 # Elasticsearch local connection
 hosts = f"http://{ELASTICSEARCH_HOST}:{ELASTICSEARCH_PORT}"
-es = Elasticsearch([hosts], basic_auth=('elastic', 'r4iKdEp3')) # Default local ES
+es = Elasticsearch([hosts], basic_auth=(ELASTICSEARCH_USERNAME, ELASTICSEARCH_PASSWORD)) 
 
 # Elastic index
 ES_INDEX = os.getenv('ES_INDEX')
