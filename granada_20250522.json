@@ -1,0 +1,739 @@
+[
+    {
+        "url": "https://www.booking.com/hotel/es/taray-orgiva.es.html?aid=304142&label=gen173nr-1FCAQoggJCCnJlZ2lvbl83NTVIM1gEaEaIAQGYAQq4ARfIAQzYAQHoAQH4AQOIAgGoAgO4AsnqvcEGwAIB0gIkNzM3MGViMWMtZTIyMi00Y2YzLTlmNmItZGE3YzgzMDAyMDgy2AIF4AIB&ucfs=1&arphpl=1&checkin=2025-05-22&checkout=2025-05-23&dest_id=755&dest_type=region&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=1&hapos=1&sr_order=popularity&nflt=ht_id%3D204&srpvid=1a218624398d02c6&srepoch=1747940683&all_sr_blocks=729496821_413338809_3_2_0&highlighted_blocks=729496821_413338809_3_2_0&matching_block_id=729496821_413338809_3_2_0&sr_pri_blocks=729496821_413338809_3_2_0__8075&from=searchresults",
+        "id": "taray-orgiva",
+        "nombre": "Hotel Taray Botanico",
+        "provincia": "Granada",
+        "localidad": "Órgiva",
+        "direccion": "ctra a-348 18, 18400 Órgiva, España",
+        "Coordenadas": {
+            "lat": 36.889704,
+            "lon": -3.418252
+        },
+        "servicios": [
+            "Piscina al aire libre",
+            "Parking gratis",
+            "WiFi gratis",
+            "Muy buen desayuno"
+        ],
+        "descripcion": "Hotel Taray Botanico, en Órgiva, ofrece alojamiento de 3 estrellas con piscina de temporada al aire libre, jardín y terraza. Hotel dispone de parking privado gratis y wifi gratis.\n\nEn el hotel se puede disfrutar de un desayuno buffet.\n\nEl aeropuerto (Aeropuerto Federico García Lorca de Granada-Jaén) está a 65 km.",
+        "opinion": 8.7,
+        "comentarios": 552,
+        "fechaEntrada": "2025-05-22",
+        "fechaSalida": "2025-05-23"
+    },
+    {
+        "url": "https://www.booking.com/hotel/es/restaurante-dama-de-baza.es.html?aid=304142&label=gen173nr-1FCAQoggJCCnJlZ2lvbl83NTVIM1gEaEaIAQGYAQq4ARfIAQzYAQHoAQH4AQOIAgGoAgO4AsnqvcEGwAIB0gIkNzM3MGViMWMtZTIyMi00Y2YzLTlmNmItZGE3YzgzMDAyMDgy2AIF4AIB&ucfs=1&arphpl=1&checkin=2025-05-22&checkout=2025-05-23&dest_id=755&dest_type=region&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=2&hapos=2&sr_order=popularity&nflt=ht_id%3D204&srpvid=1a218624398d02c6&srepoch=1747940683&all_sr_blocks=232356501_285387694_0_42_0&highlighted_blocks=232356501_285387694_0_42_0&matching_block_id=232356501_285387694_0_42_0&sr_pri_blocks=232356501_285387694_0_42_0__3500&from=searchresults",
+        "id": "restaurante-dama-de-baza",
+        "nombre": "Hotel Restaurante Dama de Baza",
+        "destacados": [
+            "Traslado aeropuerto"
+        ],
+        "provincia": "Granada",
+        "localidad": "Baza",
+        "direccion": "Autovia A92N Salida 46, Hospital, 18800 Baza, España",
+        "Coordenadas": {
+            "lat": 37.5083471050457,
+            "lon": -2.73844957351685
+        },
+        "servicios": [
+            "Traslado aeropuerto",
+            "Adaptado personas de movilidad reducida",
+            "Parking privado",
+            "WiFi gratis",
+            "Restaurante",
+            "Servicio de habitaciones",
+            "Habitaciones sin humo",
+            "Habitaciones familiares",
+            "Bar",
+            "Muy buen desayuno"
+        ],
+        "descripcion": "Hotel Restaurante Dama de Baza tiene jardín, terraza, restaurante y bar en Baza. Se ofrece parking privado por un suplemento. El alojamiento dispone de recepción 24 horas, traslado para ir o volver del aeropuerto, servicio de habitaciones y wifi gratis en todo el alojamiento.\n\nEn el hotel, las habitaciones incluyen escritorio, TV de pantalla plana, baño privado, ropa de cama y toallas. Todas las habitaciones de este alojamiento tienen aire acondicionado y armario.\n\nEn el alojamiento se puede disfrutar de un desayuno a la carta, continental o americano.\n\nHotel Restaurante Dama de Baza ofrece zona de juegos infantil. La clientela puede practicar actividades en Baza y alrededores, como senderismo.\n\nEl aeropuerto (Aeropuerto Federico García Lorca de Granada-Jaén) está a 113 km.",
+        "opinion": 8.4,
+        "comentarios": 1,
+        "fechaEntrada": "2025-05-22",
+        "fechaSalida": "2025-05-23"
+    },
+    {
+        "url": "https://www.booking.com/hotel/es/hotelplazanueva.es.html?aid=304142&label=gen173nr-1FCAQoggJCCnJlZ2lvbl83NTVIM1gEaEaIAQGYAQq4ARfIAQzYAQHoAQH4AQOIAgGoAgO4AsnqvcEGwAIB0gIkNzM3MGViMWMtZTIyMi00Y2YzLTlmNmItZGE3YzgzMDAyMDgy2AIF4AIB&ucfs=1&arphpl=1&checkin=2025-05-22&checkout=2025-05-23&dest_id=755&dest_type=region&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=3&hapos=3&sr_order=popularity&nflt=ht_id%3D204&srpvid=1a218624398d02c6&srepoch=1747940683&all_sr_blocks=9034552_269355614_0_2_0&highlighted_blocks=9034552_269355614_0_2_0&matching_block_id=9034552_269355614_0_2_0&sr_pri_blocks=9034552_269355614_0_2_0__5880&from=searchresults",
+        "id": "hotelplazanueva",
+        "nombre": "Hotel Plaza Nueva",
+        "provincia": "Granada",
+        "localidad": "Albaicín",
+        "direccion": "Plaza Nueva, 2 - Imprenta, 2, Albaicín, 18010 Granada, España",
+        "Coordenadas": {
+            "lat": 37.17696220517689,
+            "lon": -3.5961178486104473
+        },
+        "servicios": [
+            "Parking privado",
+            "WiFi gratis",
+            "Restaurante",
+            "Habitaciones sin humo",
+            "Habitaciones familiares",
+            "Recepción 24 horas",
+            "Ascensor",
+            "Calefacción",
+            "Desayuno"
+        ],
+        "descripcion": "El Hotel Plaza Nueva está situado en la céntrica Plaza Nueva de Granada, a pocos metros de la Alhambra y del increíble barrio del Albaicín. Ofrece conexión wifi gratuita y habitaciones con aire acondicionado, TV vía satélite y baño privado.\n\nEn el Renwall Hall del hotel sirve todos los días un desayuno buffet. A 2 minutos a pie hay numerosos bares de tapas, restaurantes y tiendas.\n\nLa recepción 24 horas del Hotel Plaza Nueva proporciona información sobre la ciudad y entradas para la Alhambra. También hay servicios de alquiler de coches y de venta de entradas.\n\nLa encantadora zona de la Carrera del Darro y el Paseo de los Tristes, 2 hermosos senderos junto al río, están muy cerca.\n\nEl servicio de limpieza de habitaciones está disponible hasta las 14:30.",
+        "opinion": 8.4,
+        "comentarios": 2,
+        "fechaEntrada": "2025-05-22",
+        "fechaSalida": "2025-05-23"
+    },
+    {
+        "url": "https://www.booking.com/hotel/es/philadelfia.es.html?aid=304142&label=gen173nr-1FCAQoggJCCnJlZ2lvbl83NTVIM1gEaEaIAQGYAQq4ARfIAQzYAQHoAQH4AQOIAgGoAgO4AsnqvcEGwAIB0gIkNzM3MGViMWMtZTIyMi00Y2YzLTlmNmItZGE3YzgzMDAyMDgy2AIF4AIB&ucfs=1&arphpl=1&checkin=2025-05-22&checkout=2025-05-23&dest_id=755&dest_type=region&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=4&hapos=4&sr_order=popularity&nflt=ht_id%3D204&srpvid=1a218624398d02c6&srepoch=1747940683&all_sr_blocks=25693104_364470015_0_42_0&highlighted_blocks=25693104_364470015_0_42_0&matching_block_id=25693104_364470015_0_42_0&sr_pri_blocks=25693104_364470015_0_42_0__4600&from=searchresults",
+        "id": "philadelfia",
+        "nombre": "Hotel Philadelfia",
+        "provincia": "Granada",
+        "localidad": "Peligros",
+        "direccion": "Loja, s/n, 18210 Peligros, España",
+        "Coordenadas": {
+            "lat": 37.22533945855799,
+            "lon": -3.639296293258667
+        },
+        "servicios": [
+            "Adaptado personas de movilidad reducida",
+            "WiFi gratis",
+            "Restaurante",
+            "Habitaciones sin humo",
+            "Habitaciones familiares",
+            "Bar",
+            "Desayuno"
+        ],
+        "descripcion": "El Hotel Philadelfia está situado en Albolote, a unos 5 km al norte de Granada. Todas las habitaciones disponen de aire acondicionado, conexión Wi-Fi gratuita, TV y baño privado.\n\nEl restaurante del Philadelfia sirve platos a la carta. También hay un bar y una terraza.\n\nEl hotel Philadelphia está situado en el Polígono Industrial Juncaril. Ofrece un excelente acceso a las autopistas A-92 y A-44, así como a la autopista GR-30 a Granada. Hay aparcamiento en las inmediaciones.",
+        "opinion": 7.5,
+        "comentarios": 929,
+        "fechaEntrada": "2025-05-22",
+        "fechaSalida": "2025-05-23"
+    },
+    {
+        "url": "https://www.booking.com/hotel/es/toboso-almunecar.es.html?aid=304142&label=gen173nr-1FCAQoggJCCnJlZ2lvbl83NTVIM1gEaEaIAQGYAQq4ARfIAQzYAQHoAQH4AQOIAgGoAgO4AsnqvcEGwAIB0gIkNzM3MGViMWMtZTIyMi00Y2YzLTlmNmItZGE3YzgzMDAyMDgy2AIF4AIB&ucfs=1&arphpl=1&checkin=2025-05-22&checkout=2025-05-23&dest_id=755&dest_type=region&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=5&hapos=5&sr_order=popularity&nflt=ht_id%3D204&srpvid=1a218624398d02c6&srepoch=1747940683&all_sr_blocks=37130606_380134835_2_41_0&highlighted_blocks=37130606_380134835_2_41_0&matching_block_id=37130606_380134835_2_41_0&sr_pri_blocks=37130606_380134835_2_41_0__5200&from=searchresults",
+        "id": "toboso-almunecar",
+        "nombre": "Hotel Toboso Almuñécar",
+        "destacados": [
+            "Traslado aeropuerto"
+        ],
+        "provincia": "Granada",
+        "localidad": "Almuñécar",
+        "direccion": "Larache, 2, 18690 Almuñécar, España",
+        "Coordenadas": {
+            "lat": 36.73553092238426,
+            "lon": -3.684769977146516
+        },
+        "servicios": [
+            "Piscina al aire libre",
+            "Traslado aeropuerto",
+            "Adaptado personas de movilidad reducida",
+            "Parking privado",
+            "WiFi gratis",
+            "Restaurante",
+            "Habitaciones sin humo",
+            "Habitaciones familiares",
+            "Bar",
+            "Desayuno fabuloso"
+        ],
+        "descripcion": "\"EL HOTEL HA SIDO RENOVADO EN ENERO DE 2024.\"\n\nEl Hotel Toboso Almuñécar está situado a 300 metros de la playa Puerta del Mar de Almuñécar y ofrece habitaciones con balcón y vistas al mar o a la montaña. Cuenta con una piscina al aire libre de temporada y una terraza.\n\nLas habitaciones del Hotel Toboso Almuñécar son luminosas y presentan una decoración sencilla y tradicional. Todas las habitaciones disponen de calefacción, TV de pantalla plana y baño privado.\n\nEl hotel también alberga un bar y un salón con TV. La recepción 24 horas ofrece servicio de información turística.\n\nEl club de golf más cercano está a 15 km. En la zona se pueden practicar deportes acuáticos, tenis y pádel. La estación de esquí de Sierra Nevada está a 90 km.\n\nEl Toboso se encuentra a 80 km de Málaga y de los aeropuertos de Granada.",
+        "opinion": 8.6,
+        "comentarios": 1,
+        "fechaEntrada": "2025-05-22",
+        "fechaSalida": "2025-05-23"
+    },
+    {
+        "url": "https://www.booking.com/hotel/es/abades-nevada-palace.es.html?aid=304142&label=gen173nr-1FCAQoggJCCnJlZ2lvbl83NTVIM1gEaEaIAQGYAQq4ARfIAQzYAQHoAQH4AQOIAgGoAgO4AsnqvcEGwAIB0gIkNzM3MGViMWMtZTIyMi00Y2YzLTlmNmItZGE3YzgzMDAyMDgy2AIF4AIB&ucfs=1&arphpl=1&checkin=2025-05-22&checkout=2025-05-23&dest_id=755&dest_type=region&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=6&hapos=6&sr_order=popularity&nflt=ht_id%3D204&srpvid=1a218624398d02c6&srepoch=1747940683&all_sr_blocks=9383802_86304891_0_42_0&highlighted_blocks=9383802_86304891_0_42_0&matching_block_id=9383802_86304891_0_42_0&sr_pri_blocks=9383802_86304891_0_42_0__6800&from=searchresults",
+        "id": "abades-nevada-palace",
+        "nombre": "Hotel Abades Nevada Palace",
+        "provincia": "Granada",
+        "localidad": "Genil",
+        "direccion": "Calle de la Sultana, 3, Genil, 18008 Granada, España",
+        "Coordenadas": {
+            "lat": 37.152014789738956,
+            "lon": -3.5917246341705322
+        },
+        "servicios": [
+            "Piscina al aire libre(No disponible temporalmente)",
+            "Adaptado personas de movilidad reducida",
+            "Gimnasio",
+            "Parking en el alojamiento",
+            "WiFi gratis",
+            "Restaurante",
+            "Habitaciones sin humo",
+            "Recepción 24 horas",
+            "Bar",
+            "Buen desayuno"
+        ],
+        "descripcion": "El Hotel Abades Nevada Palace es un hotel moderno que se encuentra a 10 minutos en coche del centro histórico de Granada. Ofrece piscina al aire libre de temporada y WiFi gratuita en todas las zonas.\n\nTodas las habitaciones del Nevada Palace cuentan con aire acondicionado, TV vía satélite y minibar. El baño privado dispone de secador de pelo y artículos de aseo.\n\nHay un bar y restaurante a la carta. Se ofrece servicio de habitaciones.\n\nEl hotel tiene recepción 24 horas y mostrador de información turística. La estación de esquí de Sierra Nevada se encuentra a 30 minutos en coche.",
+        "opinion": 7.7,
+        "comentarios": 5,
+        "fechaEntrada": "2025-05-22",
+        "fechaSalida": "2025-05-23"
+    },
+    {
+        "url": "https://www.booking.com/hotel/es/la-fonda-de-don-gonzalo.es.html?aid=304142&label=gen173nr-1FCAQoggJCCnJlZ2lvbl83NTVIM1gEaEaIAQGYAQq4ARfIAQzYAQHoAQH4AQOIAgGoAgO4AsnqvcEGwAIB0gIkNzM3MGViMWMtZTIyMi00Y2YzLTlmNmItZGE3YzgzMDAyMDgy2AIF4AIB&ucfs=1&arphpl=1&checkin=2025-05-22&checkout=2025-05-23&dest_id=755&dest_type=region&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=7&hapos=7&sr_order=popularity&nflt=ht_id%3D204&srpvid=1a218624398d02c6&srepoch=1747940683&all_sr_blocks=925370901_389246819_2_2_0_797794&highlighted_blocks=925370901_389246819_2_2_0_797794&matching_block_id=925370901_389246819_2_2_0_797794&sr_pri_blocks=925370901_389246819_2_2_0_797794_7500&from=searchresults",
+        "id": "la-fonda-de-don-gonzalo",
+        "nombre": "HOTEL LA FONDA DE DON GONZALO",
+        "provincia": "Granada",
+        "localidad": "Cenes de la Vega",
+        "direccion": "AVENIDA DE SIERRA NEVADA 51, 18190 Cenes de la Vega, España",
+        "Coordenadas": {
+            "lat": 37.1592035576059,
+            "lon": -3.5381440426445088
+        },
+        "servicios": [
+            "Adaptado personas de movilidad reducida",
+            "Parking privado",
+            "WiFi gratis",
+            "Habitaciones sin humo",
+            "Habitaciones familiares",
+            "Bar",
+            "Buen desayuno"
+        ],
+        "descripcion": "HOTEL LA FONDA DE DON GONZALO se encuentra en Cenes de la Vega, a 6,1 km de La Alhambra y el Generalife, y ofrece servicio de conserjería, habitaciones libres de humo, salón de uso común, wifi gratis en todo el alojamiento y bar. El alojamiento está a 6,5 km de Museo San Juan de Dios y a 6,5 km de Albaicín, y dispone de un punto de venta de forfaits, además de acceso a pie de pista. Hay parking privado en el propio alojamiento.\n\nEn el hotel, todas las habitaciones tienen aire acondicionado, escritorio, terraza con vistas a la ciudad, baño privado, TV de pantalla plana, ropa de cama y toallas. Todas las unidades disponen de caja fuerte.\n\nEn este hotel de 3 estrellas hay alquiler de equipamiento de esquí, alquiler de bicicletas y alquiler de coches, y la zona es ideal para practicar esquí.\n\nCatedral de Granada está a 6,9 km del alojamiento, y Paseo de los Tristes está a 7 km. El aeropuerto (Aeropuerto Federico García Lorca de Granada-Jaén) está a 27 km.",
+        "opinion": 8.3,
+        "comentarios": 759,
+        "fechaEntrada": "2025-05-22",
+        "fechaSalida": "2025-05-23"
+    },
+    {
+        "url": "https://www.booking.com/hotel/es/la-najarra.es.html?aid=304142&label=gen173nr-1FCAQoggJCCnJlZ2lvbl83NTVIM1gEaEaIAQGYAQq4ARfIAQzYAQHoAQH4AQOIAgGoAgO4AsnqvcEGwAIB0gIkNzM3MGViMWMtZTIyMi00Y2YzLTlmNmItZGE3YzgzMDAyMDgy2AIF4AIB&ucfs=1&arphpl=1&checkin=2025-05-22&checkout=2025-05-23&dest_id=755&dest_type=region&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=8&hapos=8&sr_order=popularity&nflt=ht_id%3D204&srpvid=1a218624398d02c6&srepoch=1747940683&all_sr_blocks=9451006_356422355_2_2_0&highlighted_blocks=9451006_356422355_2_2_0&matching_block_id=9451006_356422355_2_2_0&sr_pri_blocks=9451006_356422355_2_2_0__6000&from=searchresults",
+        "id": "la-najarra",
+        "nombre": "Hotel Noy",
+        "destacados": [
+            "Playa",
+            "Traslado aeropuerto"
+        ],
+        "provincia": "Granada",
+        "localidad": "Almuñécar",
+        "direccion": "Guadix, 12, 18690 Almuñécar, España",
+        "Coordenadas": {
+            "lat": 36.73193251580453,
+            "lon": -3.69578093290329
+        },
+        "servicios": [
+            "Traslado aeropuerto",
+            "Adaptado personas de movilidad reducida",
+            "WiFi gratis",
+            "Habitaciones sin humo",
+            "Habitaciones familiares",
+            "Bar",
+            "Buen desayuno"
+        ],
+        "descripcion": "El Hotel Noy es un hotel de gestión familiar situado a 100 metros de la playa de San Cristóbal, en Almuñécar.\n\nTodas las habitaciones del Hotel Noy Hotel tienen aire acondicionado, TV y caja fuerte.  El baño privado incluye secador de pelo.\n\nEl hotel se encuentra a 10 minutos a pie del centro de la ciudad y a solo 5 minutos a pie del hermoso jardín botánico de Majuelo.\n\nEl Hotel Noy alberga un bar y un restaurante. Hay servicio de alquiler de coches y recepción 24 horas.",
+        "opinion": 9.1,
+        "comentarios": 2,
+        "fechaEntrada": "2025-05-22",
+        "fechaSalida": "2025-05-23"
+    },
+    {
+        "url": "https://www.booking.com/hotel/es/alqueria-de-los-lentos-niguelas.es.html?aid=304142&label=gen173nr-1FCAQoggJCCnJlZ2lvbl83NTVIM1gEaEaIAQGYAQq4ARfIAQzYAQHoAQH4AQOIAgGoAgO4AsnqvcEGwAIB0gIkNzM3MGViMWMtZTIyMi00Y2YzLTlmNmItZGE3YzgzMDAyMDgy2AIF4AIB&ucfs=1&arphpl=1&checkin=2025-05-22&checkout=2025-05-23&dest_id=755&dest_type=region&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=9&hapos=9&sr_order=popularity&nflt=ht_id%3D204&srpvid=1a218624398d02c6&srepoch=1747940683&all_sr_blocks=628297208_344927199_2_42_0&highlighted_blocks=628297208_344927199_2_42_0&matching_block_id=628297208_344927199_2_42_0&sr_pri_blocks=628297208_344927199_2_42_0__6600&from=searchresults",
+        "id": "alqueria-de-los-lentos-niguelas",
+        "nombre": "Hotel Rural Alqueria de los lentos",
+        "destacados": [
+            "Traslado aeropuerto"
+        ],
+        "provincia": "Granada",
+        "localidad": "Nigüelas",
+        "direccion": "camino de los molinos \"Alqueria de los lentos\", 18657 Nigüelas, España",
+        "Coordenadas": {
+            "lat": 36.981865704774464,
+            "lon": -3.5442171521148658
+        },
+        "servicios": [
+            "Piscina al aire libre",
+            "Traslado aeropuerto",
+            "Parking gratis",
+            "WiFi gratis",
+            "Restaurante",
+            "Servicio de habitaciones",
+            "Bar",
+            "Desayuno excepcional"
+        ],
+        "descripcion": "Hotel Rural Alqueria de los lentos está en Nigüelas, a 31 km de Parque de las Ciencias de Granada, y dispone de alojamiento con jardín, parking privado gratis, salón de uso común y terraza. Este hotel de 3 estrellas ofrece restaurante y habitaciones con aire acondicionado, wifi gratis y baño privado. El alojamiento tiene piscina al aire libre, bañera de hidromasaje, hammam y bar.\n\nTodas las habitaciones de este alojamiento están equipadas con TV con canales por cable. Algunas habitaciones incluyen cocina con nevera, lavavajillas y horno. En el hotel, las habitaciones tienen ropa de cama y toallas.\n\nEn Hotel Rural Alqueria de los lentos se puede disfrutar de un desayuno a la carta.\n\nLa zona es ideal para practicar esquí y ciclismo, y en el alojamiento hay alquiler de equipamiento de esquí.\n\nMuseo San Juan de Dios está a 33 km del alojamiento, y Albaicín está a 33 km. El aeropuerto (Aeropuerto Federico García Lorca de Granada-Jaén) está a 42 km, y el alojamiento ofrece servicio de traslado de pago para ir o volver del aeropuerto.",
+        "opinion": 8.6,
+        "comentarios": 400,
+        "fechaEntrada": "2025-05-22",
+        "fechaSalida": "2025-05-23"
+    },
+    {
+        "url": "https://www.booking.com/hotel/es/vincci-albayzin.es.html?aid=304142&label=gen173nr-1FCAQoggJCCnJlZ2lvbl83NTVIM1gEaEaIAQGYAQq4ARfIAQzYAQHoAQH4AQOIAgGoAgO4AsnqvcEGwAIB0gIkNzM3MGViMWMtZTIyMi00Y2YzLTlmNmItZGE3YzgzMDAyMDgy2AIF4AIB&ucfs=1&arphpl=1&checkin=2025-05-22&checkout=2025-05-23&dest_id=755&dest_type=region&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=10&hapos=10&sr_order=popularity&nflt=ht_id%3D204&srpvid=1a218624398d02c6&srepoch=1747940683&all_sr_blocks=44645524_338644245_2_34_0_312646&highlighted_blocks=44645524_338644245_2_34_0_312646&matching_block_id=44645524_338644245_2_34_0_312646&sr_pri_blocks=44645524_338644245_2_34_0_312646_7700&from_sustainable_property_sr=1&from=searchresults",
+        "id": "vincci-albayzin",
+        "nombre": "Vincci Albayzin",
+        "marca": "Vincci Hoteles",
+        "destacados": [
+            "Certificación de sostenibilidad"
+        ],
+        "provincia": "Granada",
+        "localidad": "Centro de Granada",
+        "direccion": "Carrera de la Virgen, 48 (antigua Carrera del Genil), Centro de Granada, 18005 Granada, España",
+        "Coordenadas": {
+            "lat": 37.1697085002142,
+            "lon": -3.5964121601500665
+        },
+        "servicios": [
+            "Adaptado personas de movilidad reducida",
+            "Gimnasio",
+            "Parking privado",
+            "WiFi gratis",
+            "Restaurante",
+            "Servicio de habitaciones",
+            "Habitaciones sin humo",
+            "Habitaciones familiares",
+            "Bar",
+            "Desayuno fabuloso"
+        ],
+        "descripcion": "El Vincci Albayzin está situado en torno a un patio típico andaluz y dispone de recepción 24 horas, gimnasio con sauna y habitaciones con aire acondicionado y conexión Wi-Fi gratuita. La catedral de Granada se encuentra a 700 metros.\n\nTodas las habitaciones presentan una decoración clásica y cuentan con TV de pantalla plana vía satélite, minibar, caja fuerte y baño de mármol con bañera o ducha, artículos de aseo gratuitos y secador de pelo.\n\nEl hotel alberga un restaurante a la carta que combina la cocina tradicional con la internacional. Además, a menos 10 minutos a pie del establecimiento hay una gran variedad de bares de tapas típicos y El Corte Inglés está a sólo 40 metros.\n\nEl establecimiento se encuentra a menos de 10 minutos a pie del centro del Albayzín y a 2 km de la Alhambra, mientras que el aeropuerto de Granada está a 25 minutos en coche y los autobuses que van hacia el aeropuerto paran a sólo 100 metros del hotel.",
+        "opinion": 8.7,
+        "comentarios": 5,
+        "fechaEntrada": "2025-05-22",
+        "fechaSalida": "2025-05-23"
+    },
+    {
+        "url": "https://www.booking.com/hotel/es/carmen-almunecar.es.html?aid=304142&label=gen173nr-1FCAQoggJCCnJlZ2lvbl83NTVIM1gEaEaIAQGYAQq4ARfIAQzYAQHoAQH4AQOIAgGoAgO4AsnqvcEGwAIB0gIkNzM3MGViMWMtZTIyMi00Y2YzLTlmNmItZGE3YzgzMDAyMDgy2AIF4AIB&ucfs=1&arphpl=1&checkin=2025-05-22&checkout=2025-05-23&dest_id=755&dest_type=region&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=11&hapos=11&sr_order=popularity&nflt=ht_id%3D204&srpvid=1a218624398d02c6&srepoch=1747940683&all_sr_blocks=24705606_408634571_0_1_0&highlighted_blocks=24705606_408634571_0_1_0&matching_block_id=24705606_408634571_0_1_0&sr_pri_blocks=24705606_408634571_0_1_0__5166&from=searchresults",
+        "id": "carmen-almunecar",
+        "nombre": "Hotel Olas de Almuñécar",
+        "destacados": [
+            "Playa"
+        ],
+        "provincia": "Granada",
+        "localidad": "Almuñécar",
+        "direccion": "Avenida Europa, 19, 18690 Almuñécar, España",
+        "Coordenadas": {
+            "lat": 36.732671987081055,
+            "lon": -3.693798780441284
+        },
+        "servicios": [
+            "Piscina al aire libre",
+            "Adaptado personas de movilidad reducida",
+            "WiFi gratis",
+            "Restaurante",
+            "Habitaciones sin humo",
+            "Habitaciones familiares",
+            "Bar",
+            "Desayuno"
+        ],
+        "descripcion": "Su escapada boutique por el corazón verde de Almuñécar.\n\nUbicado junto al exuberante Parque Botánico El Majuelo, que destaca por su colección de más de 180 especies de plantas tropicales y subtropicales, y bajo el histórico Castillo de San Miguel, el Hotel Olas de Almuñécar es un refugio para parejas y viajeros que buscan relajación, cultura y el auténtico espíritu de la Costa Tropical. \n\nRodeado de jardines tropicales, antiguas ruinas romanas y a pocos pasos de la playa de San Cristóbal, un lugar increíble para practicar buceo, es el lugar perfecto para escapadas románticas y vacaciones memorables.\n\nComience el día con la calma de la naturaleza, explore el vibrante encanto de Almuñécar y termine con una experiencia gastronómica especial en La Despensa del Olas, nuestra enoteca y gastrobar, donde descubrirá una cuidada selección de vinos, tapas gourmet y platos de autor elaborados con alma.\n\nTanto si busca un refugio tranquilo como una aventura costera inspiradora, le damos la bienvenida para experimentar el auténtico espíritu de la Costa Tropical.",
+        "opinion": 8.4,
+        "comentarios": 94,
+        "fechaEntrada": "2025-05-22",
+        "fechaSalida": "2025-05-23"
+    },
+    {
+        "url": "https://www.booking.com/hotel/es/granadabypierrevacances.es.html?aid=304142&label=gen173nr-1FCAQoggJCCnJlZ2lvbl83NTVIM1gEaEaIAQGYAQq4ARfIAQzYAQHoAQH4AQOIAgGoAgO4AsnqvcEGwAIB0gIkNzM3MGViMWMtZTIyMi00Y2YzLTlmNmItZGE3YzgzMDAyMDgy2AIF4AIB&ucfs=1&arphpl=1&checkin=2025-05-22&checkout=2025-05-23&dest_id=755&dest_type=region&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=12&hapos=12&sr_order=popularity&nflt=ht_id%3D204&srpvid=1a218624398d02c6&srepoch=1747940683&all_sr_blocks=18927801_0_2_0_0&highlighted_blocks=18927801_0_2_0_0&matching_block_id=18927801_0_2_0_0&sr_pri_blocks=18927801_0_2_0_0__6593&from=searchresults",
+        "id": "granadabypierrevacances",
+        "nombre": "Hotel Granada by Pierre & Vacances",
+        "marca": "Pierre & Vacances Hôtel",
+        "destacados": [
+            "Traslado aeropuerto"
+        ],
+        "provincia": "Granada",
+        "localidad": "Beiro",
+        "direccion": "Avenida de Pulianas,10, Beiro, 18012 Granada, España",
+        "Coordenadas": {
+            "lat": 37.18936498260222,
+            "lon": -3.603630716143016
+        },
+        "servicios": [
+            "Piscina al aire libre",
+            "Traslado aeropuerto",
+            "Adaptado personas de movilidad reducida",
+            "Parking privado",
+            "WiFi gratis",
+            "Servicio de habitaciones",
+            "Habitaciones sin humo",
+            "Habitaciones familiares",
+            "Bar",
+            "Buen desayuno"
+        ],
+        "descripcion": "El moderno Hotel Granada by Pierre & Vacances se encuentra a 400 metros de la plaza de toros de Granada y alberga una piscina al aire libre de temporada y wifi gratuita en las habitaciones. Se halla a 10 minutos a pie de la estación de tren y a 1,5 km del centro de Granada.\n\nEl Hotel Granada by Pierre & Vacance ofrece habitaciones insonorizadas y luminosas, y con aire acondicionado y TV de pantalla plana vía satélite. Hay caja fuerte, escritorio y minibar. El baño privado incluye secador de pelo y artículos de aseo gratuitos.\n\nEl restaurante del Hotel Granada by Pierre & Vacances ofrece cocina andaluza y opciones sin gluten. El bar del hotel sirve bebidas.\n\nSe ofrece servicio de lavandería y mostrador de información turística con servicio de alquiler de coches. Se proporciona servicio de lanzadera por un suplemento.\n\nEl Hotel Allegro Granada ahora es el Hotel Granada by Pierre & Vacances. Todos los servicios y las reservas se gestionan bajo este nuevo nombre.\n\nEl Hotel Granada by Pierre & Vacances puede incurrir en cargos adicionales no detallados anteriormente. Consulte la sección de la letra pequeña para obtener más información.",
+        "opinion": 8.5,
+        "comentarios": 4,
+        "fechaEntrada": "2025-05-22",
+        "fechaSalida": "2025-05-23"
+    },
+    {
+        "url": "https://www.booking.com/hotel/es/ibis-granada.es.html?aid=304142&label=gen173nr-1FCAQoggJCCnJlZ2lvbl83NTVIM1gEaEaIAQGYAQq4ARfIAQzYAQHoAQH4AQOIAgGoAgO4AsnqvcEGwAIB0gIkNzM3MGViMWMtZTIyMi00Y2YzLTlmNmItZGE3YzgzMDAyMDgy2AIF4AIB&ucfs=1&arphpl=1&checkin=2025-05-22&checkout=2025-05-23&dest_id=755&dest_type=region&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=13&hapos=13&sr_order=popularity&nflt=ht_id%3D204&srpvid=1a218624398d02c6&srepoch=1747940683&all_sr_blocks=27144411_376292870_2_2_0&highlighted_blocks=27144411_376292870_2_2_0&matching_block_id=27144411_376292870_2_2_0&sr_pri_blocks=27144411_376292870_2_2_0__7400&from=searchresults",
+        "id": "ibis-granada",
+        "nombre": "Ibis Granada",
+        "marca": "ibis",
+        "destacados": [
+            "Travel Proud"
+        ],
+        "provincia": "Granada",
+        "localidad": "Granada",
+        "direccion": "Calle Graham Bell, Nº3. Armilla, Enfrente de Carrefour, 18100 Granada, España",
+        "Coordenadas": {
+            "lat": 37.15513486944925,
+            "lon": -3.611859977245331
+        },
+        "servicios": [
+            "Piscina al aire libre",
+            "Adaptado personas de movilidad reducida",
+            "Parking privado",
+            "WiFi gratis",
+            "Restaurante",
+            "Habitaciones sin humo",
+            "Habitaciones familiares",
+            "Recepción 24 horas",
+            "Bar",
+            "Buen desayuno"
+        ],
+        "descripcion": "El Ibis Granada se encuentra a sólo 5 minutos en coche del centro histórico de Granada y a 15 minutos también en coche del palacio de la Alhambra. Cuenta con piscina al aire libre de temporada, restaurante y habitaciones modernas con TV de pantalla plana vía satélite.\n\nLas habitaciones del Ibis Granada son luminosas y funcionales y disponen de aire acondicionado, baño privado con secador de pelo y conexión Wi-Fi gratuita.\n\nEl Ibis ofrece por las mañanas un desayuno bufé. En el Café Plancha Parrilla del establecimiento se sirven platos típicos de carne y de pescado. El hotel también alberga una terraza y un bar 24 horas.\n\nEl Ibis Granada se encuentra a 200 metros del Parque de las Ciencias de Granada, a 2 km del Palacio de Congresos y a 20 km del aeropuerto de Granada. Se ofrece un fácil acceso a la autopista A-44.",
+        "opinion": 8.3,
+        "comentarios": 4,
+        "fechaEntrada": "2025-05-22",
+        "fechaSalida": "2025-05-23"
+    },
+    {
+        "url": "https://www.booking.com/hotel/es/saray.es.html?aid=304142&label=gen173nr-1FCAQoggJCCnJlZ2lvbl83NTVIM1gEaEaIAQGYAQq4ARfIAQzYAQHoAQH4AQOIAgGoAgO4AsnqvcEGwAIB0gIkNzM3MGViMWMtZTIyMi00Y2YzLTlmNmItZGE3YzgzMDAyMDgy2AIF4AIB&ucfs=1&arphpl=1&checkin=2025-05-22&checkout=2025-05-23&dest_id=755&dest_type=region&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=14&hapos=14&sr_order=popularity&nflt=ht_id%3D204&srpvid=1a218624398d02c6&srepoch=1747940683&all_sr_blocks=9103101_329890408_0_2_0_316170&highlighted_blocks=9103101_329890408_0_2_0_316170&matching_block_id=9103101_329890408_0_2_0_316170&sr_pri_blocks=9103101_329890408_0_2_0_316170_9000&from_sustainable_property_sr=1&from=searchresults",
+        "id": "saray",
+        "nombre": "Hotel Saray",
+        "marca": "Hoteles Santos",
+        "destacados": [
+            "Certificación de sostenibilidad"
+        ],
+        "provincia": "Granada",
+        "localidad": "Zaidín",
+        "direccion": "Profesor Tierno Galván 4, Zaidín, 18006 Granada, España",
+        "Coordenadas": {
+            "lat": 37.16503190640541,
+            "lon": -3.597448468208313
+        },
+        "servicios": [
+            "Adaptado personas de movilidad reducida",
+            "Gimnasio",
+            "Parking privado",
+            "WiFi gratis",
+            "Restaurante",
+            "Servicio de habitaciones",
+            "Habitaciones sin humo",
+            "Habitaciones familiares",
+            "Bar",
+            "Muy buen desayuno"
+        ],
+        "descripcion": "El Hotel Saray se encuentra a menos de 10 minutos a pie del centro histórico de Granada y cuenta con bonitas terrazas y jardines. Las habitaciones son modernas y disponen de aire acondicionado, wifi gratuita y TV de pantalla plana vía satélite.\n\nEl Hotel Saray presenta un elegante diseño andaluz, con mosaicos típicos, arcos y fuentes. Las habitaciones son elegantes y disponen de caja fuerte para ordenador portátil, minibar y baño privado con secador de pelo. No está permitido fumar en ninguna de las habitaciones.\n\nEn el restaurante a la carta del hotel Saray se sirven platos nacionales e internacionales. El hotel cuenta con un bar y un pub popular, el Qubba.\n\nEl hotel está situado junto al centro de congresos de Granada, a solo 150 metros de la parada de autobús del aeropuerto. El Palacio de la Alhambra y el barrio del Albaicín están a menos de 2 km.",
+        "opinion": 8.5,
+        "comentarios": 9,
+        "fechaEntrada": "2025-05-22",
+        "fechaSalida": "2025-05-23"
+    },
+    {
+        "url": "https://www.booking.com/hotel/es/abadia.es.html?aid=304142&label=gen173nr-1FCAQoggJCCnJlZ2lvbl83NTVIM1gEaEaIAQGYAQq4ARfIAQzYAQHoAQH4AQOIAgGoAgO4AsnqvcEGwAIB0gIkNzM3MGViMWMtZTIyMi00Y2YzLTlmNmItZGE3YzgzMDAyMDgy2AIF4AIB&ucfs=1&arphpl=1&checkin=2025-05-22&checkout=2025-05-23&dest_id=755&dest_type=region&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=15&hapos=15&sr_order=popularity&nflt=ht_id%3D204&srpvid=1a218624398d02c6&srepoch=1747940683&all_sr_blocks=9155606_88154438_0_0_0&highlighted_blocks=9155606_88154438_0_0_0&matching_block_id=9155606_88154438_0_0_0&sr_pri_blocks=9155606_88154438_0_0_0__10583&from=searchresults",
+        "id": "abadia",
+        "nombre": "Abadía Hotel",
+        "provincia": "Granada",
+        "localidad": "Centro de Granada",
+        "direccion": "Triana Baja, 7, Centro de Granada, 18001 Granada, España",
+        "Coordenadas": {
+            "lat": 37.1816658413638,
+            "lon": -3.6031693761106
+        },
+        "servicios": [
+            "WiFi gratis",
+            "Habitaciones sin humo",
+            "Terraza",
+            "Jardín",
+            "Ascensor",
+            "Servicio de lavandería"
+        ],
+        "descripcion": "El Hotel Abadía está ubicado en un edificio del siglo XVI restaurado, a 10 minutos a pie de la catedral de Granada. Las habitaciones están situadas alrededor de un patio de baldosas con fuente y plantas.\n\nLas habitaciones de estilo andaluz del Abadía incluyen suelo de baldosa, adornos decorativos, aire acondicionado, TV de pantalla plana con canales vía satélite y WiFi gratis.\n\nEl Abadía ofrece mapas de la ciudad gratuitos e información turística. Además, los autobuses hacia la Alhambra y el aeropuerto de Granada paran a 100 metros del hotel.",
+        "opinion": 8.5,
+        "comentarios": 4,
+        "fechaEntrada": "2025-05-22",
+        "fechaSalida": "2025-05-23"
+    },
+    {
+        "url": "https://www.booking.com/hotel/es/losgirasoles.es.html?aid=304142&label=gen173nr-1FCAQoggJCCnJlZ2lvbl83NTVIM1gEaEaIAQGYAQq4ARfIAQzYAQHoAQH4AQOIAgGoAgO4AsnqvcEGwAIB0gIkNzM3MGViMWMtZTIyMi00Y2YzLTlmNmItZGE3YzgzMDAyMDgy2AIF4AIB&ucfs=1&arphpl=1&checkin=2025-05-22&checkout=2025-05-23&dest_id=755&dest_type=region&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=16&hapos=16&sr_order=popularity&nflt=ht_id%3D204&srpvid=1a218624398d02c6&srepoch=1747940683&all_sr_blocks=9144810_390359365_2_2_0&highlighted_blocks=9144810_390359365_2_2_0&matching_block_id=9144810_390359365_2_2_0&sr_pri_blocks=9144810_390359365_2_2_0__5780&from=searchresults",
+        "id": "losgirasoles",
+        "nombre": "Hotel Los Girasoles",
+        "marca": "Maxi Hoteles",
+        "provincia": "Granada",
+        "localidad": "Centro de Granada",
+        "direccion": "San Juan de Dios, 48, Centro de Granada, 18001 Granada, España",
+        "Coordenadas": {
+            "lat": 37.181606005949256,
+            "lon": -3.602469319557713
+        },
+        "servicios": [
+            "Parking privado",
+            "WiFi gratis",
+            "Recepción 24 horas",
+            "Calefacción",
+            "Desayuno"
+        ],
+        "descripcion": "El Hotel Los Girasoles está situado en una calle tranquila del centro histórico de Granada, junto a la iglesia de San Juan de Dios. Dispone de conexión Wi-Fi gratuita.\n\nEl hotel está cerca del palacio de la Alhambra, famoso en todo el mundo. La catedral se halla a 500 metros.\n\nEl hotel Los Girasoles ofrece habitaciones modernas con suelo de parqué, aire acondicionado y calefacción. También cuentan con baño privado y TV vía satélite.\n\nEl Hotel Los Girasoles presenta un diseño moderno y acogedor. Alberga un mostrador de información turística y está a poca distancia a pie de un aparcamiento.",
+        "opinion": 7.5,
+        "comentarios": 1,
+        "fechaEntrada": "2025-05-22",
+        "fechaSalida": "2025-05-23"
+    },
+    {
+        "url": "https://www.booking.com/hotel/es/macia-real-de-la-alhambra.es.html?aid=304142&label=gen173nr-1FCAQoggJCCnJlZ2lvbl83NTVIM1gEaEaIAQGYAQq4ARfIAQzYAQHoAQH4AQOIAgGoAgO4AsnqvcEGwAIB0gIkNzM3MGViMWMtZTIyMi00Y2YzLTlmNmItZGE3YzgzMDAyMDgy2AIF4AIB&ucfs=1&arphpl=1&checkin=2025-05-22&checkout=2025-05-23&dest_id=755&dest_type=region&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=17&hapos=17&sr_order=popularity&nflt=ht_id%3D204&srpvid=1a218624398d02c6&srepoch=1747940683&all_sr_blocks=9365201_0_2_0_0&highlighted_blocks=9365201_0_2_0_0&matching_block_id=9365201_0_2_0_0&sr_pri_blocks=9365201_0_2_0_0__6827&from=searchresults",
+        "id": "macia-real-de-la-alhambra",
+        "nombre": "Hotel Macià Real De La Alhambra",
+        "destacados": [
+            "Traslado aeropuerto",
+            "Travel Proud"
+        ],
+        "provincia": "Granada",
+        "localidad": "Genil",
+        "direccion": "Mirador Del Genil, 2, Genil, 18008 Granada, España",
+        "Coordenadas": {
+            "lat": 37.162995375830334,
+            "lon": -3.570670390581654
+        },
+        "servicios": [
+            "Piscina al aire libre",
+            "Spa y centro de bienestar",
+            "Traslado aeropuerto",
+            "Adaptado personas de movilidad reducida",
+            "Gimnasio",
+            "Parking privado",
+            "WiFi gratis",
+            "Restaurante",
+            "Bar",
+            "Muy buen desayuno"
+        ],
+        "descripcion": "El Macià Real de la Alhambra cuenta con baños árabes y está a 3 km del centro de Granada. Hay conexión WiFi gratuita en todo el hotel.\n\nTodas las modernas habitaciones del Hotel Real de la Alhambra tienen TV de pantalla plana y caja fuerte. Algunas también disponen de balcón privado con tumbonas.\n\nEl restaurante del hotel, el Daraxa, sirve una mezcla de cocina tradicional andaluza y platos internacionales. Además, el establecimiento proporciona aparcamiento privado por un suplemento.\n\nLos autobuses que paran frente al hotel comunican con el centro de la ciudad de Granada en 10 minutos, donde se encuentran el antiguo barrio árabe del Albaicín y la catedral. Las montañas de Sierra Nevada se sitúan a 1 hora en coche aproximadamente.",
+        "opinion": 8.5,
+        "comentarios": 5,
+        "fechaEntrada": "2025-05-22",
+        "fechaSalida": "2025-05-23"
+    },
+    {
+        "url": "https://www.booking.com/hotel/es/sacromonte.es.html?aid=304142&label=gen173nr-1FCAQoggJCCnJlZ2lvbl83NTVIM1gEaEaIAQGYAQq4ARfIAQzYAQHoAQH4AQOIAgGoAgO4AsnqvcEGwAIB0gIkNzM3MGViMWMtZTIyMi00Y2YzLTlmNmItZGE3YzgzMDAyMDgy2AIF4AIB&ucfs=1&arphpl=1&checkin=2025-05-22&checkout=2025-05-23&dest_id=755&dest_type=region&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=18&hapos=18&sr_order=popularity&nflt=ht_id%3D204&srpvid=1a218624398d02c6&srepoch=1747940683&all_sr_blocks=9457901_0_2_0_0&highlighted_blocks=9457901_0_2_0_0&matching_block_id=9457901_0_2_0_0&sr_pri_blocks=9457901_0_2_0_0__5712&from=searchresults",
+        "id": "sacromonte",
+        "nombre": "Hotel Sacromonte",
+        "destacados": [
+            "Traslado aeropuerto"
+        ],
+        "provincia": "Granada",
+        "localidad": "Centro de Granada",
+        "direccion": "Plaza del Lino, 1 (esquina con c/ Alhondiga), Centro de Granada, 18002 Granada, España",
+        "Coordenadas": {
+            "lat": 37.17453013302993,
+            "lon": -3.601174056529999
+        },
+        "servicios": [
+            "Traslado aeropuerto",
+            "Adaptado personas de movilidad reducida",
+            "Parking",
+            "WiFi gratis",
+            "Recepción 24 horas",
+            "Ascensor",
+            "Calefacción",
+            "Servicio de lavandería"
+        ],
+        "descripcion": "Este elegante hotel está situado en el corazón de la ciudad, a corta distancia a pie de muchos lugares de interés turístico.\n\nDé un paseo por las calles del casco antiguo, lleno de tiendas boutique y bellas muestras arquitectónicas. Admire la entrada del hotel Hotel Sacromonte, con sus elaboradas puertas y su vestíbulo, decorado con cadelabros.\n\nLas habitaciones, dotadas de elegante mobiliario en madera y suelos alicatados, ofrecen vistas a la calle. Presentan tejidos en colores mediterráneos. Disponen también de cuarto de baño de mármol y conexión inalámbrica a internet.\n\nEn las inmediaciones del establecimiento encontrará numerosas terrazas y bares de tapas.",
+        "opinion": 8.6,
+        "comentarios": 3,
+        "fechaEntrada": "2025-05-22",
+        "fechaSalida": "2025-05-23"
+    },
+    {
+        "url": "https://www.booking.com/hotel/es/best-alcazar.es.html?aid=304142&label=gen173nr-1FCAQoggJCCnJlZ2lvbl83NTVIM1gEaEaIAQGYAQq4ARfIAQzYAQHoAQH4AQOIAgGoAgO4AsnqvcEGwAIB0gIkNzM3MGViMWMtZTIyMi00Y2YzLTlmNmItZGE3YzgzMDAyMDgy2AIF4AIB&ucfs=1&arphpl=1&checkin=2025-05-22&checkout=2025-05-23&dest_id=755&dest_type=region&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=19&hapos=19&sr_order=popularity&nflt=ht_id%3D204&srpvid=1a218624398d02c6&srepoch=1747940683&all_sr_blocks=1244209_87538069_0_42_0&highlighted_blocks=1244209_87538069_0_42_0&matching_block_id=1244209_87538069_0_42_0&sr_pri_blocks=1244209_87538069_0_42_0__6716&from=searchresults",
+        "id": "best-alcazar",
+        "nombre": "Hotel Best Alcázar",
+        "marca": "Best Hotels",
+        "destacados": [
+            "Playa"
+        ],
+        "provincia": "Granada",
+        "localidad": "La Herradura",
+        "direccion": "Camino de la Playa s/n. Urb. Marina Del Este, 18690 La Herradura, España",
+        "Coordenadas": {
+            "lat": 36.728196357268374,
+            "lon": -3.73110294342041
+        },
+        "servicios": [
+            "4 piscinas",
+            "Spa y centro de bienestar",
+            "Gimnasio",
+            "Parking privado",
+            "WiFi gratis",
+            "Restaurante",
+            "Habitaciones sin humo",
+            "Habitaciones familiares",
+            "Bar",
+            "Desayuno fantástico"
+        ],
+        "descripcion": "El Hotel Best Alcázar ofrece habitaciones y apartamentos bien equipados distribuidos alrededor de una gran piscina al aire libre de temporada. Se encuentra a 1,2 km de la playa de la Herradura y ofrece un spa y conexión Wi-Fi gratuita.\n\nTodas las habitaciones y apartamentos del Alcazar disponen de aire acondicionado y balcón, algunos con vistas al mar. Los apartamentos tienen zona de cocina con microondas y nevera.\n\nEl spa del hotel dispone de baños turcos, una sauna y una piscina cubierta. El hotel también ofrece una peluquería, un salón de belleza y una bolera.\n\nEl restaurante del hotel sirve cocina tipo bufé que incluye una amplia variedad de platos mediterráneos. También hay un bar cafetería.\n\nEl Best Hotel Alcazar está situado en la carretera costera N-340, que conecta Málaga con Almería. Granada y su aeropuerto están a unos 50 km.",
+        "opinion": 8.1,
+        "comentarios": 2,
+        "fechaEntrada": "2025-05-22",
+        "fechaSalida": "2025-05-23"
+    },
+    {
+        "url": "https://www.booking.com/hotel/es/maciacondor.es.html?aid=304142&label=gen173nr-1FCAQoggJCCnJlZ2lvbl83NTVIM1gEaEaIAQGYAQq4ARfIAQzYAQHoAQH4AQOIAgGoAgO4AsnqvcEGwAIB0gIkNzM3MGViMWMtZTIyMi00Y2YzLTlmNmItZGE3YzgzMDAyMDgy2AIF4AIB&ucfs=1&arphpl=1&checkin=2025-05-22&checkout=2025-05-23&dest_id=755&dest_type=region&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=20&hapos=20&sr_order=popularity&nflt=ht_id%3D204&srpvid=1a218624398d02c6&srepoch=1747940683&all_sr_blocks=9040302_0_2_0_0&highlighted_blocks=9040302_0_2_0_0&matching_block_id=9040302_0_2_0_0&sr_pri_blocks=9040302_0_2_0_0__7046&from=searchresults",
+        "id": "maciacondor",
+        "nombre": "Hotel Macià Cóndor",
+        "destacados": [
+            "Traslado aeropuerto",
+            "Travel Proud"
+        ],
+        "provincia": "Granada",
+        "localidad": "Beiro",
+        "direccion": "Avenida Constitución 6, Beiro, 18012 Granada, España",
+        "Coordenadas": {
+            "lat": 37.184041055667414,
+            "lon": -3.6038439517597
+        },
+        "servicios": [
+            "Traslado aeropuerto",
+            "Adaptado personas de movilidad reducida",
+            "Gimnasio",
+            "Parking privado",
+            "WiFi gratis",
+            "Servicio de habitaciones",
+            "Habitaciones sin humo",
+            "Habitaciones familiares",
+            "Bar",
+            "Muy buen desayuno"
+        ],
+        "descripcion": "Situado cerca del centro comercial e histórico de Granada, el elegante Hotel Macià Cóndor ofrece habitaciones con aire acondicionado y conexión inalámbrica a internet gratuita. El hotel dispone de recepción abierta las 24 horas del día.\n\nEl hotel sirve un desayuno bufé y cuenta con un restaurante a la carta. Podrá relajarse en el bar o en la terraza.\n\nEl famoso barrio del Albaicín de Granada, declarado Patrimonio de la Humanidad por la UNESCO, se encuentra a menos de 10 minutos a pie. La catedral está a 800 metros.",
+        "opinion": 8.1,
+        "comentarios": 2,
+        "fechaEntrada": "2025-05-22",
+        "fechaSalida": "2025-05-23"
+    },
+    {
+        "url": "https://www.booking.com/hotel/es/nuevo-palas.es.html?aid=304142&label=gen173nr-1FCAQoggJCCnJlZ2lvbl83NTVIM1gEaEaIAQGYAQq4ARfIAQzYAQHoAQH4AQOIAgGoAgO4AsnqvcEGwAIB0gIkNzM3MGViMWMtZTIyMi00Y2YzLTlmNmItZGE3YzgzMDAyMDgy2AIF4AIB&ucfs=1&arphpl=1&checkin=2025-05-22&checkout=2025-05-23&dest_id=755&dest_type=region&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=21&hapos=21&sr_order=popularity&nflt=ht_id%3D204&srpvid=1a218624398d02c6&srepoch=1747940683&all_sr_blocks=9444808_403221727_2_1_0&highlighted_blocks=9444808_403221727_2_1_0&matching_block_id=9444808_403221727_2_1_0&sr_pri_blocks=9444808_403221727_2_1_0__7200&from=searchresults",
+        "id": "nuevo-palas",
+        "nombre": "Hotel Nuevo Palas",
+        "provincia": "Granada",
+        "localidad": "Lanjarón",
+        "direccion": "Avda. de la Alpujarra, 24, 18420 Lanjarón, España",
+        "Coordenadas": {
+            "lat": 36.91860285870077,
+            "lon": -3.4884113073349
+        },
+        "servicios": [
+            "Piscina al aire libre",
+            "Adaptado personas de movilidad reducida",
+            "Gimnasio",
+            "WiFi gratis",
+            "Restaurante",
+            "Servicio de habitaciones",
+            "Habitaciones sin humo",
+            "Habitaciones familiares",
+            "Bar",
+            "Desayuno"
+        ],
+        "descripcion": "Hotel Nuevo Palas dispone de piscina de temporada al aire libre, centro de fitness, restaurante y bar en Lanjarón. Este hotel de 3 estrellas tiene wifi gratis, servicio de habitaciones y recepción 24 horas. Este alojamiento libre de humo se encuentra a 41 km de Parque de las Ciencias de Granada.\n\nEl hotel ofrece habitaciones con aire acondicionado, escritorio, caja fuerte, TV de pantalla plana y baño privado con bidet. En Hotel Nuevo Palas, todas las habitaciones incluyen ropa de cama y toallas.\n\nLa clientela puede practicar actividades en Lanjarón y alrededores, como esquí y ciclismo.\n\nMuseo San Juan de Dios está a 43 km del alojamiento, y Albaicín está a 43 km. El aeropuerto (Aeropuerto Federico García Lorca de Granada-Jaén) está a 53 km.",
+        "opinion": 7.7,
+        "comentarios": 675,
+        "fechaEntrada": "2025-05-22",
+        "fechaSalida": "2025-05-23"
+    },
+    {
+        "url": "https://www.booking.com/hotel/es/dwo-urban-granada.es.html?aid=304142&label=gen173nr-1FCAQoggJCCnJlZ2lvbl83NTVIM1gEaEaIAQGYAQq4ARfIAQzYAQHoAQH4AQOIAgGoAgO4AsnqvcEGwAIB0gIkNzM3MGViMWMtZTIyMi00Y2YzLTlmNmItZGE3YzgzMDAyMDgy2AIF4AIB&ucfs=1&arphpl=1&checkin=2025-05-22&checkout=2025-05-23&dest_id=755&dest_type=region&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=22&hapos=22&sr_order=popularity&nflt=ht_id%3D204&srpvid=1a218624398d02c6&srepoch=1747940683&all_sr_blocks=9676901_410410619_0_34_0&highlighted_blocks=9676901_410410619_0_34_0&matching_block_id=9676901_410410619_0_34_0&sr_pri_blocks=9676901_410410619_0_34_0__8400&from=searchresults",
+        "id": "dwo-urban-granada",
+        "nombre": "DWO Urban Granada",
+        "provincia": "Granada",
+        "localidad": "Barrio de Ronda",
+        "direccion": "Camino de Ronda, 107, Barrio de Ronda, 18003 Granada, España",
+        "Coordenadas": {
+            "lat": 37.17634671449622,
+            "lon": -3.609834421749838
+        },
+        "servicios": [
+            "Adaptado personas de movilidad reducida",
+            "Parking",
+            "WiFi gratis",
+            "Restaurante",
+            "Servicio de habitaciones",
+            "Habitaciones sin humo",
+            "Habitaciones familiares",
+            "Recepción 24 horas",
+            "Bar",
+            "Buen desayuno"
+        ],
+        "descripcion": "El DWO Urban Granada se encuentra a 10 minutos a pie de la catedral de Granada y del centro de la ciudad, y ofrece habitaciones modernas con WiFi gratuita. Cuenta con 2 restaurantes e instalaciones para negocios.\n\nLas habitaciones están decoradas con muebles modernos y disponen de aire acondicionado, TV de pantalla plana vía satélite y nevera pequeña. Todas las habitaciones incluyen baño privado con secador de pelo.\n\nEl restaurante a la carta del hotel, el Urban Gastro Lounge, sirve comida tradicional española.\n\nEste alojamiento se encuentra a 1 minuto a pie de una parada de metro y a menos de 5 minutos a pie de una gran variedad de tiendas, bancos y restaurantes. La Alhambra se halla a 20 minutos en coche. La estación de tren de Granada está a 5 minutos en coche y el aeropuerto de Granada, a 18 km.",
+        "opinion": 8.2,
+        "comentarios": 6,
+        "fechaEntrada": "2025-05-22",
+        "fechaSalida": "2025-05-23"
+    },
+    {
+        "url": "https://www.booking.com/hotel/es/casablanca-almunecar.es.html?aid=304142&label=gen173nr-1FCAQoggJCCnJlZ2lvbl83NTVIM1gEaEaIAQGYAQq4ARfIAQzYAQHoAQH4AQOIAgGoAgO4AsnqvcEGwAIB0gIkNzM3MGViMWMtZTIyMi00Y2YzLTlmNmItZGE3YzgzMDAyMDgy2AIF4AIB&ucfs=1&arphpl=1&checkin=2025-05-22&checkout=2025-05-23&dest_id=755&dest_type=region&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=23&hapos=23&sr_order=popularity&nflt=ht_id%3D204&srpvid=1a218624398d02c6&srepoch=1747940683&all_sr_blocks=23510502_198637599_0_2_0&highlighted_blocks=23510502_198637599_0_2_0&matching_block_id=23510502_198637599_0_2_0&sr_pri_blocks=23510502_198637599_0_2_0__6000&from=searchresults",
+        "id": "casablanca-almunecar",
+        "nombre": "Hotel Casablanca",
+        "destacados": [
+            "Frente a la playa",
+            "Traslado aeropuerto"
+        ],
+        "provincia": "Granada",
+        "localidad": "Almuñécar",
+        "direccion": "Plaza San Cristobal, 4, 18690 Almuñécar, España",
+        "Coordenadas": {
+            "lat": 36.72959797544878,
+            "lon": -3.6946458708007412
+        },
+        "servicios": [
+            "Traslado aeropuerto",
+            "WiFi gratis",
+            "Restaurante",
+            "Habitaciones sin humo",
+            "Situado frente a la playa",
+            "Habitaciones familiares",
+            "Bar",
+            "Desayuno fabuloso"
+        ],
+        "descripcion": "El Hotel Casablanca se encuentra en la playa de San Cristóbal de Almuñécar, en la Costa Tropical. Ofrece vistas magníficas al Mediterráneo y WiFi gratuita y está a solo 10 minutos a pie del centro de la ciudad.\n\nLas habitaciones del Casablanca están insonorizadas y cuentan con aire acondicionado, TV de pantalla plana, caja fuerte y escritorio. Algunas incluyen balcón privado y están disponibles bajo petición. El baño es privado y tiene secador de pelo y artículos de aseo.\n\nEl restaurante sirve cocina mediterránea y alberga una chimenea. También hay una terraza de verano con bar, cafetería y una zona de barbacoa.\n\nEl establecimiento cuenta con aparcamiento gratuito para motos. Se puede acceder fácilmente a la N-340. El parque ecológico Peña Escrita se encuentra a 1 hora en coche.",
+        "opinion": 8.7,
+        "comentarios": 2,
+        "fechaEntrada": "2025-05-22",
+        "fechaSalida": "2025-05-23"
+    },
+    {
+        "url": "https://www.booking.com/hotel/es/casa-jazmin-granada.es.html?aid=304142&label=gen173nr-1FCAQoggJCCnJlZ2lvbl83NTVIM1gEaEaIAQGYAQq4ARfIAQzYAQHoAQH4AQOIAgGoAgO4AsnqvcEGwAIB0gIkNzM3MGViMWMtZTIyMi00Y2YzLTlmNmItZGE3YzgzMDAyMDgy2AIF4AIB&ucfs=1&arphpl=1&checkin=2025-05-22&checkout=2025-05-23&dest_id=755&dest_type=region&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=24&hapos=24&sr_order=popularity&nflt=ht_id%3D204&srpvid=1a218624398d02c6&srepoch=1747940683&all_sr_blocks=1319784706_406734409_2_2_0&highlighted_blocks=1319784706_406734409_2_2_0&matching_block_id=1319784706_406734409_2_2_0&sr_pri_blocks=1319784706_406734409_2_2_0__7110&from=searchresults",
+        "id": "casa-jazmin-granada",
+        "nombre": "Hotel Casa Jazmin",
+        "provincia": "Granada",
+        "localidad": "Barrio de Ronda",
+        "direccion": "C. Pedro Antonio de Alarcón, 85, Barrio de Ronda, 18002 Granada, España",
+        "Coordenadas": {
+            "lat": 37.1767416,
+            "lon": -3.6088041
+        },
+        "servicios": [
+            "WiFi gratis",
+            "Habitaciones sin humo",
+            "Habitaciones familiares",
+            "Calefacción",
+            "Muy buen desayuno"
+        ],
+        "descripcion": "Hotel Casa Jazmin está muy bien situado en el barrio de Barrio de Ronda, Granada, a 12 min a pie de Catedral de Granada, a 1,6 km de Museo San Juan de Dios y a 1,7 km de Albaicín. Este hotel de 3 estrellas tiene habitaciones con aire acondicionado, baño privado y wifi gratis. Este alojamiento libre de humo se encuentra a 9 min a pie de Basilica de San Juan de Dios.\n\nEn el hotel, todas las habitaciones incluyen armario. En Hotel Casa Jazmin, cada habitación incluye ropa de cama y toallas.\n\nHay opciones buffet o continentales de desayuno disponibles en el alojamiento.\n\nEstación de tren de Granada está a 12 min a pie del alojamiento, y Parque de las Ciencias de Granada está a 2,3 km. El aeropuerto (Aeropuerto Federico García Lorca de Granada-Jaén) está a 16 km.",
+        "opinion": 8.0,
+        "comentarios": 97,
+        "fechaEntrada": "2025-05-22",
+        "fechaSalida": "2025-05-23"
+    },
+    {
+        "url": "https://www.booking.com/hotel/es/puerta-nazari.es.html?aid=304142&label=gen173nr-1FCAQoggJCCnJlZ2lvbl83NTVIM1gEaEaIAQGYAQq4ARfIAQzYAQHoAQH4AQOIAgGoAgO4AsnqvcEGwAIB0gIkNzM3MGViMWMtZTIyMi00Y2YzLTlmNmItZGE3YzgzMDAyMDgy2AIF4AIB&ucfs=1&arphpl=1&checkin=2025-05-22&checkout=2025-05-23&dest_id=755&dest_type=region&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=25&hapos=25&sr_order=popularity&nflt=ht_id%3D204&srpvid=1a218624398d02c6&srepoch=1747940683&all_sr_blocks=9436208_385653086_0_42_0&highlighted_blocks=9436208_385653086_0_42_0&matching_block_id=9436208_385653086_0_42_0&sr_pri_blocks=9436208_385653086_0_42_0__6200&from=searchresults",
+        "id": "puerta-nazari",
+        "nombre": "Hotel Puerta Nazarí",
+        "provincia": "Granada",
+        "localidad": "Órgiva",
+        "direccion": "Carretera A-348, Km. 15,900, 18400 Órgiva, España",
+        "Coordenadas": {
+            "lat": 36.90118192118958,
+            "lon": -3.4289641678333282
+        },
+        "servicios": [
+            "Parking gratis",
+            "WiFi gratis",
+            "Restaurante",
+            "Servicio de habitaciones",
+            "Habitaciones sin humo",
+            "Habitaciones familiares",
+            "Bar",
+            "Desayuno fabuloso"
+        ],
+        "descripcion": "El Hotel Puerta Nazarí se encuentra en Orgiva y ofrece vistas a Sierra Nevada. El establecimiento alberga un restaurante y una terraza y ofrece conexión Wi-Fi gratuita.\n\nTodas las habitaciones del Hotel Puerta Nazari están decoradas con buen gusto y tiene un mural de estilo árabe. Cuentan con aire acondicionado, TV y balcón.\n\nEl restaurante del hotel sirve cocina internacional y platos tradicionales de la región de la Alpujarra.\n\nLa entrada del parque nacional de Sierra Nevada se encuentra a unos 10 minutos en coche. La estación de esquí del parque está situada a poco más de 1 hora en coche.\n\nGranada se encuentra a 50 km. Motril y la costa del Sol está a unos 35 km del Puerta Nazari.",
+        "opinion": 8.3,
+        "comentarios": 1,
+        "fechaEntrada": "2025-05-22",
+        "fechaSalida": "2025-05-23"
+    }
+]

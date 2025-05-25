@@ -56,11 +56,10 @@ Esquema relevante:
 - nombre: text
 - localidad: text
 - servicios: text
-- mascotas: boolean
+- coordenadas: geo_point
 - descripcion: text
 - precio: integer
 - fechaEntrada: date (yyyy-MM-dd)
-- fechaSalida: date (yyyy-MM-dd)
 
 Ejemplo 1:
 Pregunta: "Muéstrame hoteles en Aguadulce con piscina y parking, ordenados por precio ascendente para el día 01/06/2025."
@@ -70,7 +69,7 @@ Respuesta JSON:
     "bool": {
       "must": [
         { "match": { "localidad": "aguadulce" } },
-        { "range": { "fechaEntrada": { "lte": "2025-06-01" } } }
+        { "term": { "fechaEntrada":  "2025-06-01"  } }
         {
           "bool": {
             "should": [
@@ -83,20 +82,18 @@ Respuesta JSON:
       ]
     }
   },
-  "sort": [{ "precio": "asc" }],
   "size": 10
 }
 
 
 Ejemplo 2:
-Pregunta: "Dime hoteles que admiten mascotas en Madrid disponibles el 10 de julio de 2025."
+Pregunta: "Dime hoteles que  en Madrid disponibles el 10 de julio de 2025."
 Respuesta JSON:
 {
   "query": {
     "bool": {
       "filter": [
         { "match": { "localidad": "Madrid" } },
-        { "term": { "mascotas": true } },
         { "range": { "fechaEntrada": { "gte": "2025-07-10" } } }
       ]
     }
@@ -160,18 +157,65 @@ def resumen_resultados(resultados) -> str:
     resumen = "Resultados encontrados:\n"
     for hit in hits:
         fuente = hit.get("_source", {})
+        print(fuente)
         resumen += f"- Hotel: {fuente.get('nombre', 'N/A')}, Localidad: {fuente.get('localidad', 'N/A')}, Precio: {fuente.get('precio', 'N/A')}€\n"
     return resumen
 
+def construir_prompt_multiple(resultados) -> str:
+    prompt = "Describe brevemente y en lenguaje natural los siguientes hoteles como si fuera parte de una recomendación turística. Usa viñetas o párrafos separados para cada hotel:\n\n"
+
+    hits = resultados.get("hits", {}).get("hits", [])
+    if not hits:
+        return "No se encontraron resultados para la consulta."
+    for hit in hits:
+        hotel = hit.get("_source", {})    
+        nombre = hotel.get("nombre", "Nombre desconocido")
+        localidad = hotel.get("localidad", "Localidad desconocida")
+        provincia = hotel.get("provincia", "Provincia desconocida")
+        descripcion = hotel.get("descripcion", "")
+        servicios = ", ".join(hotel.get("servicios", []))
+        opinion = hotel.get("opinion", "Sin opiniones")
+        comentarios = hotel.get("comentarios", "sin comentarios")
+        url = hotel.get("url", "sin URL")
+
+        prompt += f"""Hotel {nombre}:
+
+- Nombre: {nombre}
+- Ubicación: {localidad}, {provincia}
+- Descripción: {descripcion}
+- Servicios: {servicios}
+- Puntuación: {opinion} (basada en {comentarios} comentario/s)
+- Más información: {url}
+
+"""
+    return prompt.strip()
+
+def respuesta_natural(resultados) -> str:
+    try:
+        respuesta = openai_client.chat.completions.create(
+            model=OPENROUTER_MODEL,
+            messages=[{"role": "user", "content": resultados}],
+            timeout=60
+        )
+        if respuesta.choices and respuesta.choices[0].message:
+            return respuesta.choices[0].message.content
+        else:
+            print("Error: No message choice returned from OpenRouter.")
+            return None
+    except Exception as e:
+        print(f"Error al llamar al modelo: {e}")
+        return None
+    
 def main():
     pregunta_usuario = input("Pregunta sobre hoteles: ")
     consulta = generar_consulta_llm(pregunta_usuario)
     print("Consulta Elasticsearch generada:")
     print(json.dumps(consulta, indent=2))
     resultados = buscar_en_elasticsearch(consulta)
-    respuesta_natural = resumen_resultados(resultados)
+    prompt_hoteles = construir_prompt_multiple(resultados)
+    respuesta = respuesta_natural(prompt_hoteles)
     print("\nRespuesta en lenguaje natural:")
-    print(respuesta_natural)
+    print(respuesta)
 
 if __name__ == "__main__":
     main()

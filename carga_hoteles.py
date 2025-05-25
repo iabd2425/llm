@@ -91,7 +91,7 @@ def crear_index():
 
 # Lectura de JSON con hoteles
 def carga_json():
-    file_path = "almeria20250516.json"
+    file_path = "almería_20250522.json"
     print(f"Leyendo datos desde: {file_path}")
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
