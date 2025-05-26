@@ -3,7 +3,6 @@ import json
 import re
 from elasticsearch import Elasticsearch
 from openai import OpenAI, APIError, APIStatusError, APIConnectionError, RateLimitError, AuthenticationError
-import ollama 
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -16,47 +15,39 @@ ELASTICSEARCH_PASSWORD = os.getenv('ELASTICSEARCH_PASSWORD')
 OPENROUTER_API_KEY = os.getenv('OPENROUTER_API_KEY')
 OPENROUTER_API_BASE = os.getenv('OPENROUTER_API_BASE')
 OPENROUTER_SITE_URL = os.getenv('OPENROUTER_SITE_URL')
-OPENROUTER_MODEL = os.getenv('OPENROUTER_MODEL', 'gpt-3.5-turbo-16k') # Default to gpt-3.5-turbo-16k if not set
+OPENROUTER_MODEL = os.getenv('OPENROUTER_MODEL') 
 
 
-# Elasticsearch local connection
+# Conexión Elasticsearch
 hosts = f"http://{ELASTICSEARCH_HOST}:{ELASTICSEARCH_PORT}"
 es = Elasticsearch([hosts], basic_auth=(ELASTICSEARCH_USERNAME, ELASTICSEARCH_PASSWORD))
 es.info()
 
 
-# Ollama Configuration
-OLLAMA_BASE_URL = os.getenv('OLLAMA_BASE_URL')
-OLLAMA_MODEL = os.getenv('OLLAMA_MODEL')
-
-
 ES_INDEX = os.getenv('ES_INDEX')
-TEMPLATE_ID = os.getenv('TEMPLATE_ID')
-
-google_maps_api_key = os.getenv('GMAPS_API_KEY')
 
 
-indice = "hoteles"  # tu índice
+indice = ES_INDEX
 
 
- # Initialize OpenAI client for OpenRouter
+ # Inicialización del cliente OpenAI para OpenRouter
 openai_client = OpenAI(
     base_url=OPENROUTER_API_BASE,
     api_key=OPENROUTER_API_KEY,
-    default_headers={ # Recommended headers for OpenRouter
-        "HTTP-Referer": OPENROUTER_SITE_URL,
-        # "X-Title": "Your App Name" # Optional
+    default_headers={ 
+        "HTTP-Referer": OPENROUTER_SITE_URL
     }
 )
 
 FEW_SHOT_PROMPT = """
 Eres un experto en Elasticsearch. Dado el siguiente esquema de índice de hoteles, genera SOLO la consulta JSON válida para buscar detalles del hotel solicitado.
 
-Esquema relevante:
+Esquema:
 - nombre: text
+- provincia: text
 - localidad: text
 - servicios: text
-- coordenadas: geo_point
+- location: geo_point
 - descripcion: text
 - precio: integer
 - fechaEntrada: date (yyyy-MM-dd)
@@ -94,7 +85,7 @@ Respuesta JSON:
     "bool": {
       "filter": [
         { "match": { "localidad": "Madrid" } },
-        { "range": { "fechaEntrada": { "gte": "2025-07-10" } } }
+        { "term": { "fechaEntrada": "2025-07-10" } }
       ]
     }
   },
@@ -126,7 +117,7 @@ def extraer_json_valido(texto):
         return json.loads(match.group())
     except json.JSONDecodeError as e:
         print("⚠️ Error al parsear JSON:", e)
-        print("Respuesta cruda:\n", texto)
+        print("Respuesta raw:\n", texto)
         return None
 
 def generar_consulta_llm(pregunta: str) -> dict:
@@ -134,15 +125,14 @@ def generar_consulta_llm(pregunta: str) -> dict:
     respuesta = openai_client.chat.completions.create(
                 model=OPENROUTER_MODEL,
                 messages=[{"role":"user", "content": prompt}],
-                timeout=60 # Timeout for the API call
+                timeout=60 
             )
     if respuesta.choices and respuesta.choices[0].message:
       contenido = respuesta.choices[0].message.content
     else:
-      print("Error: No message choice returned from OpenRouter.")
-    print(contenido)
+      print("Error: No se ha obtenido mensaje desde OpenRouter.")
     consulta = extraer_json_valido(contenido)
-    print("🔍 Respuesta raw del LLM:")
+    print("Respuesta raw del LLM:")
     print(consulta)
     return consulta
 
@@ -162,7 +152,7 @@ def resumen_resultados(resultados) -> str:
     return resumen
 
 def construir_prompt_multiple(resultados) -> str:
-    prompt = "Describe brevemente y en lenguaje natural los siguientes hoteles como si fuera parte de una recomendación turística. Usa viñetas o párrafos separados para cada hotel:\n\n"
+    prompt = "Describe brevemente y en lenguaje natural los siguientes hoteles como si fuera parte de una recomendación turística. Usa viñetas o párrafos separados para cada hotel y no inventes ni añadas información, solo la recibida. Si no obtienes resultados indica solamente que no se han encontrado resultados:\n\n"
 
     hits = resultados.get("hits", {}).get("hits", [])
     if not hits:
@@ -200,7 +190,7 @@ def respuesta_natural(resultados) -> str:
         if respuesta.choices and respuesta.choices[0].message:
             return respuesta.choices[0].message.content
         else:
-            print("Error: No message choice returned from OpenRouter.")
+            print("Error: No se ha obtenido mensajes desde OpenRouter.")
             return None
     except Exception as e:
         print(f"Error al llamar al modelo: {e}")
@@ -214,7 +204,6 @@ def main():
     resultados = buscar_en_elasticsearch(consulta)
     prompt_hoteles = construir_prompt_multiple(resultados)
     respuesta = respuesta_natural(prompt_hoteles)
-    print("\nRespuesta en lenguaje natural:")
     print(respuesta)
 
 if __name__ == "__main__":
