@@ -1,9 +1,0 @@
-POST http://localhost:11434/api/generate
-Content-Type: application/json
-
-{
-  "model": "llama3.2:3b",
-  "temperature": 0.1, 
-  "prompt": "Hello, Ollama!",
-  "stream": false
-}
