@@ -142,13 +142,13 @@ El sistema generará una consulta Elasticsearch, la ejecutará, y te devolverá 
 
 ## Licencia
 
-[Indica aquí la licencia del proyecto, si aplica]
+GNU(GPL)
 
 ---
 
 ## Autor
 
-[iabd2425](https://github.com/iabd2425)
+[Juan Carlos Camacho Sánchez - Curso 2024/2025 IABD I.E.S. AL ÁNDALUS](https://github.com/iabd2425)
 
 ---
 
