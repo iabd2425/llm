@@ -1,3 +1,5 @@
+from datetime import datetime 
+import logging
 import os
 import json
 import re
@@ -13,6 +15,7 @@ ELASTICSEARCH_PORT = os.getenv('ELASTICSEARCH_PORT')
 ELASTICSEARCH_USERNAME = os.getenv('ELASTICSEARCH_USERNAME')
 ELASTICSEARCH_PASSWORD = os.getenv('ELASTICSEARCH_PASSWORD')
 ES_INDEX = os.getenv('ES_INDEX')
+OUT_DIRECTORY = os.getenv('OUT_DIRECTORY')
 
 # Ruta y modelo LLM
 USE_OPEN_ROUTER = os.getenv('USE_OPEN_ROUTER', 'no').lower() == 'yes'
@@ -142,6 +145,33 @@ Ahora, genera SOLO la consulta JSON para esta pregunta:
 "{pregunta}"
 """
 
+def configurar_logging():
+    # Ruta a fichero logging
+    log_filename = f"chatbot_{datetime.now().strftime('%Y%m%d')}.log"
+    full_log_path = os.path.join(OUT_DIRECTORY, log_filename)
+
+    #Crea el directorio de salida en caso de que no exista
+    if not os.path.exists(OUT_DIRECTORY):
+        os.makedirs(OUT_DIRECTORY)
+
+    write_permission = False
+    try:
+        # Intenta abrir el fichero en modo append para comprobar los permisos de escritura
+        # y se asegura de que el manejador del fichero se cierre inmediatamente después de la comprobación.
+        with open(full_log_path, 'a') as f:
+            pass
+        write_permission = True
+    except IOError as e:
+        write_permission = False
+        print(f"Warning: No se puede escribir en {full_log_path}. Revise los permisos de escritura. Error: {e}")
+
+    # Configuración básica del logging
+    logging.basicConfig(
+        filename=full_log_path,  # Nombre del archivo de log (corrección aquí)
+        level=logging.INFO,      # Nivel mínimo de mensajes que se guardarán
+        format='%(asctime)s - CHATBOT - %(levelname)s - %(message)s'  # Formato del mensaje
+    )
+
 def extraer_json_valido(texto):
     try:
         match = re.search(r'\{.*\}', texto, re.DOTALL)
@@ -176,8 +206,10 @@ def generar_consulta_llm(pregunta: str) -> dict:
             return None
 
     consulta = extraer_json_valido(contenido)
-    print("Respuesta raw del LLM:\n", contenido)
-    return consulta
+    json_comprimido = json.dumps(consulta, separators=(',', ':'))
+    print("Respuesta raw del LLM:\n", json_comprimido)
+    logging.info(f"Consulta generada: {json_comprimido}")
+    return json_comprimido
 
 def buscar_en_elasticsearch(consulta: dict):
     return es.search(index=ES_INDEX, body=consulta)
@@ -193,11 +225,15 @@ def construir_prompt_multiple(resultados) -> str:
         servicios = hotel.get("servicios", [])
         prompt += f"""Hotel {hotel.get('nombre', 'N/A')}:
 
-- Ubicacion: {hotel.get('localidad', 'N/A')}, {hotel.get('provincia', 'N/A')}
+- Provincia: {hotel.get('provincia', 'N/A')}
+- Localidad: {hotel.get('localidad', 'N/A')} 
+- Direccion: {hotel.get('direccion', 'N/A')}
 - Descripcion: {hotel.get('descripcion', '')}
 - Servicios: {', '.join(servicios) if isinstance(servicios, list) else servicios}
-- Puntuacion: {hotel.get('opinion', 'Sin opiniones')} ({hotel.get('comentarios', '0')} comentarios)
-- Mas informacion: {hotel.get('url', 'N/A')}
+- Puntuacion: {hotel.get('opinion', 'Sin opiniones')} 
+- Número de comentarios: ({hotel.get('comentarios', '0')} comentarios)
+- Url: {hotel.get('url', 'N/A')}
+- Precio: {hotel.get('precio', 'N/A')} EUR
 
 """
     return prompt.strip()
@@ -223,15 +259,17 @@ def respuesta_natural(texto_prompt: str) -> str:
             return None
 
 def main():
+    configurar_logging()
     pregunta_usuario = input("Pregunta sobre hoteles: ")
+    logging.info(f"Pregunta: {pregunta_usuario}")
     consulta = generar_consulta_llm(pregunta_usuario)
     if not consulta:
         return
-    print("Consulta generada:\n", json.dumps(consulta, indent=2))
     resultados = buscar_en_elasticsearch(consulta)
     prompt_hoteles = construir_prompt_multiple(resultados)
     respuesta = respuesta_natural(prompt_hoteles)
     print("\nRespuesta:\n", respuesta)
+    logging.info("Respuesta: " + respuesta)
 
 if __name__ == "__main__":
     main()
